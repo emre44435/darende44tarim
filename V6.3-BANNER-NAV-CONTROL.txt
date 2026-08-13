@@ -1,0 +1,6 @@
+V6.3 BANNER + NAV CONTROL
+- Desktop hero background replaced with user-supplied 2048x768 WebP.
+- Hero tuned to 720px desktop height for the supplied 8:3 banner ratio.
+- Removed downward chevrons beside "Tüm Kategoriler" in both header search and main navigation.
+- Category buttons re-centered and spacing refined.
+- No changes made to sections below hero.

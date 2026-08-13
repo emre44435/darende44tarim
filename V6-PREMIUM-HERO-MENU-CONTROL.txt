@@ -1,0 +1,26 @@
+DARENDE TARIM V6 PREMIUM HEADER / MENU / HERO
+
+Yapılan değişiklikler:
+- Sepet ve kampanyalar eklenmedi.
+- Masaüstü ana menü: Tüm Kategoriler, Ana Sayfa, Ürünler, Çapa Makineleri, Jeneratörler, Kaynak Makineleri, Markalar, Hakkımızda, İletişim.
+- Menü lacivert/mavi premium cam efekti, hover ve aktif sayfa ışık çizgisi ile yenilendi.
+- Mobil menü soldan açılan tam boy premium drawer olarak yeniden yapıldı.
+- Mobil drawer: logo, karşılama, tüm menüler, telefon kartı, Facebook/Instagram/WhatsApp ikonları ve kapatma/backdrop desteği içerir.
+- Masaüstü hero görseli: assets/images/hero/hero-premium-desktop.webp (1672x941, 333540 byte)
+- Mobil hero görseli: assets/images/hero/hero-premium-mobile.webp (1086x1448, 337578 byte)
+- Hero artık tam alan arka plan banner olarak çalışır; metin gerçek HTML olarak üstte kalır.
+- “Güç Sizde!” başlığı CSS gradient shimmer + glow animasyonuna sahiptir.
+- prefers-reduced-motion desteği eklendi.
+- Arama formu mevcut ürün kataloğu aramasıyla çalışmaya devam eder.
+- Facebook/Instagram bağlantıları assets/js/config.js içindeki facebook ve instagram alanlarından sonradan tek noktadan eklenebilir.
+
+Kontrol:
+- index.html duplicate id: 0
+- urunler.html duplicate id: 0
+- eksik yerel asset: 0
+- kırık yerel href: 0
+- main.js syntax: OK
+- products.js syntax: OK
+- config.js syntax: OK
+- CSS parse error: 0
+- hero görselleri 500 KB altında

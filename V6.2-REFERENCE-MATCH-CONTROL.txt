@@ -1,0 +1,23 @@
+DARENDE TARIM V6.2 — REFERENCE MATCH
+
+Kapsam:
+- Yalnız ana sayfanın topbar + header + navigation + hero alanı değiştirildi.
+- Hero sonrası HTML aynen korundu.
+- urunler.html, products.js, config.js ve main.js değiştirilmedi.
+
+Uygulananlar:
+- Referans tasarıma yakın 1590px premium header/nav grid sistemi.
+- Üst barda Hakkımızda / Servis & Destek / Blog / İletişim + sosyal ikonlar.
+- Logo, kategori entegreli arama ve üç eşit iletişim kartı.
+- Hero üzerinde yüzen navy navigasyon, aktif sayfa alt glow çizgisi.
+- Verilen desktop ve mobile hero WebP dosyaları aynen kullanıldı.
+- Hero başlığı beyaz + mavi premium gradient/glow; aşırı animasyon kaldırıldı.
+- Hero güven satırı: 81 İle Hızlı Kargo / Orijinal & Güvenilir / Uzman Destek.
+- Mobilde soldan açılan tam yükseklik drawer menü düzeltildi ve responsive yapıldı.
+
+Kontroller:
+- Duplicate ID: 0
+- Eksik local asset: 0
+- JS syntax: PASS
+- CSS brace balance: PASS
+- 1920/1600/1440/1366/1200/1024/768/430/390/375 genişliklerinde yatay overflow: 0

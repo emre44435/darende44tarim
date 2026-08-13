@@ -1,0 +1,9 @@
+V6.5 MOBILE MENU STABILITY + MOBILE BANNER
+
+- Desktop hero/banner file was not modified.
+- Supplied second image is installed as assets/images/hero/hero-premium-mobile.webp.
+- Mobile drawer is force-reset on initial load, page navigation, bfcache restore, browser back/forward, hash navigation, resize, outside click and Escape.
+- Clicking any drawer menu/category link closes the drawer without re-focusing the old menu button.
+- Drawer/body open-state classes cannot persist when moving between index.html and urunler.html.
+- Mobile drawer layout is locked to a single stable column to prevent the offset/broken state shown in the supplied screenshot.
+- JS syntax, CSS braces, duplicate IDs and local asset references were checked.

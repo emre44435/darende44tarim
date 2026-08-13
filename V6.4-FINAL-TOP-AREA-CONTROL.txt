@@ -1,0 +1,15 @@
+DARENDE TARIM V6.4 FINAL TOP AREA
+
+- Yeni Darende Tarım Aletleri logosu header, mobil drawer ve footer alanlarına uygulandı.
+- Mobil hero banner 1080x1350 WebP olarak optimize edilip yerleştirildi.
+- Masaüstü 2048x768 hero banner korunarak tam genişlik/cover yerleşimi düzeltildi.
+- Navbar çevresindeki açık gri/pale boşluk kaldırıldı; nav ile hero koyu zemin üzerinde kesintisiz birleştirildi.
+- Masaüstü menü referans tasarıma göre ikonlu hale getirildi.
+- Tüm Kategoriler butonu açık/parlak mavi premium stile dönüştürüldü.
+- Aktif menüde kontrollü mavi ışık çizgisi, hover mikro etkileşimi eklendi.
+- 1240px altındaki masaüstü/tablet geçişinde ikonlar otomatik sadeleşerek taşma önlendi.
+- Mobil menü soldan açılan drawer olarak korunup yeni logo ve premium renk sistemiyle uyumlandı.
+- Sepet/Kampanyalar eklenmedi.
+- HTML local asset ve duplicate ID kontrolü: geçti.
+- JavaScript syntax kontrolü: geçti.
+- CSS brace kontrolü: geçti.

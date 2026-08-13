@@ -1,0 +1,15 @@
+V6.1 PREMIUM HERO / MENU REVISION
+
+- Hero başlık renk çakışması düzeltildi: "Tarımda" artık beyaz ve premium görünüyor.
+- "Güç Sizde!" için parlama, shimmer ve kontrollü ışık noktası animasyonları güçlendirildi.
+- Hero arka planı daha canlı, daha derin ve referans görsele yakın hale getirildi.
+- Sol vignette profesyonel okunabilirlik için yeniden ayarlandı.
+- Hero başlık, açıklama, CTA ve avantajlar masaüstünde büyütülüp hizalandı.
+- Menü hero üzerine premium yüzer/glass bar olarak bindirildi.
+- Sepet ve Kampanyalar eklenmedi.
+- Masaüstü menü: Tüm Kategoriler, Ana Sayfa, Ürünler, Çapa Makineleri, Jeneratörler, Kaynak Makineleri, Markalar, Hakkımızda, İletişim.
+- Mobil menü soldan açılan premium drawer olarak korundu ve görsel kalite güçlendirildi.
+- Mobil hero responsive ölçüleri yeniden dengelendi.
+- Diğer ana sayfa bölümlerine müdahale edilmedi.
+- HTML local asset / duplicate id kontrolü geçti.
+- JS syntax kontrolü geçti.

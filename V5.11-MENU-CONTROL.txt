@@ -1,0 +1,4 @@
+V5.11 MENU UPDATE
+- Ana menü tasarımı modern cam efektli ve kurumsal stile güncellendi.
+- Masaüstü menüde pill butonlar, aktif sayfa vurgusu ve daha güçlü spacing uygulandı.
+- Mobil menü açılır panel tasarımı güçlendirildi.

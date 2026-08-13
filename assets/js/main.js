@@ -37,36 +37,93 @@
     qsa('[data-maps]').forEach(a => {
       a.href = cfg.maps; a.target = '_blank'; a.rel = 'noopener noreferrer';
     });
+    qsa('[data-facebook]').forEach(a => {
+      if (cfg.facebook) { a.href = cfg.facebook; a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+    });
+    qsa('[data-instagram]').forEach(a => {
+      if (cfg.instagram) { a.href = cfg.instagram; a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+    });
   }
 
   function setupMenu() {
     const toggle = qs('[data-menu-toggle]');
     const nav = qs('[data-mobile-nav]');
+    const backdrop = qs('[data-menu-backdrop]');
+    const closeButton = nav ? qs('[data-menu-close]', nav) : null;
     if (!toggle || !nav) return;
 
-    const close = () => {
+    let lastFocused = null;
+
+    const resetState = ({ restoreFocus = false } = {}) => {
       toggle.setAttribute('aria-expanded','false');
       nav.classList.remove('is-open');
+      nav.setAttribute('aria-hidden','true');
+      backdrop?.classList.remove('is-open');
       document.body.classList.remove('menu-open');
+      document.documentElement.classList.remove('menu-open');
+
+      if (restoreFocus && lastFocused && document.contains(lastFocused)) {
+        lastFocused.focus({preventScroll:true});
+      }
+      if (!restoreFocus) lastFocused = null;
     };
 
+    const open = () => {
+      lastFocused = document.activeElement;
+      toggle.setAttribute('aria-expanded','true');
+      nav.classList.add('is-open');
+      nav.setAttribute('aria-hidden','false');
+      backdrop?.classList.add('is-open');
+      document.body.classList.add('menu-open');
+      document.documentElement.classList.add('menu-open');
+      requestAnimationFrame(() => closeButton?.focus({preventScroll:true}));
+    };
+
+    // Browsers can restore a previous page from bfcache with DOM classes intact.
+    // Always start every page/view with a clean, closed drawer state.
+    resetState();
+
     toggle.addEventListener('click', (e) => {
+      e.preventDefault();
       e.stopPropagation();
-      const opening = toggle.getAttribute('aria-expanded') !== 'true';
-      toggle.setAttribute('aria-expanded', String(opening));
-      nav.classList.toggle('is-open', opening);
-      document.body.classList.toggle('menu-open', opening);
+      toggle.getAttribute('aria-expanded') === 'true'
+        ? resetState({restoreFocus:true})
+        : open();
     });
 
-    qsa('a', nav).forEach(a => a.addEventListener('click', close));
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
-    document.addEventListener('click', e => {
-      if (!nav.classList.contains('is-open')) return;
-      if (nav.contains(e.target) || toggle.contains(e.target)) return;
-      close();
+    closeButton?.addEventListener('click', () => resetState({restoreFocus:true}));
+    backdrop?.addEventListener('click', () => resetState({restoreFocus:true}));
+
+    // Navigation links must close the drawer without re-focusing the old button.
+    // This prevents broken positioning when following anchors, category filters,
+    // moving to products.html, or returning with browser back/forward cache.
+    qsa('a', nav).forEach(a => {
+      a.addEventListener('click', () => resetState({restoreFocus:false}), {capture:true});
     });
+
+    document.addEventListener('pointerdown', e => {
+      if (toggle.getAttribute('aria-expanded') !== 'true') return;
+      if (nav.contains(e.target) || toggle.contains(e.target)) return;
+      resetState({restoreFocus:false});
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        resetState({restoreFocus:true});
+      }
+    });
+
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 920) close();
+      if (window.innerWidth > 920) resetState({restoreFocus:false});
+    }, {passive:true});
+
+    // Critical stability reset for page/category/product navigation and bfcache.
+    window.addEventListener('pageshow', () => resetState({restoreFocus:false}));
+    window.addEventListener('pagehide', () => resetState({restoreFocus:false}));
+    window.addEventListener('popstate', () => resetState({restoreFocus:false}));
+    window.addEventListener('hashchange', () => resetState({restoreFocus:false}));
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') resetState({restoreFocus:false});
     });
   }
 

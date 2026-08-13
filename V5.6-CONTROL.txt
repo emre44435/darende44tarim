@@ -1,0 +1,22 @@
+DARENDE TARIM V5.6 KONTROL
+
+Öne Çıkan Ürün Grupları görselleri:
+- feature-capa.webp: 1200x800 WebP, ~150 KB
+- feature-kaynak.webp: 1200x800 WebP, ~173 KB
+
+Düzenleme:
+- Masaüstünde 2 eşit kart korunur.
+- Görsel alanı kart içinde taşma ve alt boşluk oluşturmayacak şekilde ayarlandı.
+- Görseller object-fit: cover ile kontrollü kırpılır.
+- Çapa kartı görsel odağı sola, kaynak kartı görsel odağı sağa ayarlandı.
+- 920 px altında kartlar tek kolona geçer ve görsel alanı 3:2 oranını korur.
+- 640 px altında mobil görsel alanı 3:2 oranında kalır.
+
+Kontroller:
+- HTML duplicate ID: 0
+- Eksik yerel görsel: 0
+- Eksik alt metin: 0
+- Boş href: 0
+- Kırık yerel href: 0
+- main.js syntax: OK
+- products.js syntax: OK

@@ -1,0 +1,10 @@
+DARENDE TARIM GÖRSEL ÖLÇÜLERİ
+
+Hero görseli:        1600 x 960 px  WebP  (öneri 180-350 KB)
+Kategori kartları:    800 x 800 px  WebP  (öneri 60-140 KB)
+Ürün kartları:       1000 x 1000 px WebP  (öneri 80-180 KB, max 500 KB)
+Dikdörtgen bloklar:  1200 x 800 px  WebP  (öneri 120-220 KB)
+Hakkımızda görseli:  1200 x 900 px  WebP  (öneri 120-250 KB)
+Marka ürünleri:       800 x 800 px  WebP
+
+Dosya yolları README.md içinde yazılıdır.

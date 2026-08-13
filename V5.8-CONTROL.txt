@@ -1,0 +1,13 @@
+DARENDE TARIM V5.8
+
+Çalıştığımız Markalar > Husqvarna bölümü güncellendi.
+
+Eklenen görseller:
+- assets/images/brands/husqvarna-product-01.webp
+- assets/images/brands/husqvarna-product-02.webp
+- assets/images/brands/husqvarna-product-03.webp
+- assets/images/brands/husqvarna-product-04.webp
+
+Tümü 800x800 WebP olarak optimize edildi ve 500 KB altındadır.
+Husqvarna marka kartına tıklandığında dört ürün görseli ve WhatsApp Fiyat Sor butonları gösterilir.
+Bosch ürünleri korunmuştur.

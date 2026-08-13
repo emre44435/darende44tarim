@@ -1,0 +1,11 @@
+DARENDE TARIM V5.7 — BOSCH MARKA ÜRÜNLERİ
+
+- Çalıştığımız Markalar bölümünde Bosch varsayılan olarak açık gösterilir.
+- Bosch kartına tıklandığında 4 gerçek Bosch ürün görseli gösterilir.
+- Görseller 800x800 WebP olarak optimize edildi.
+- Ürün isimleri görsele göre genel ve güvenli adlandırıldı; spesifik model numarası uydurulmadı.
+- Her Bosch ürün kartında çalışan WhatsApp Fiyat Sor butonu bulunur.
+- Diğer marka kartları mevcut altyapı ile çalışmaya devam eder.
+- Masaüstü: 4 kolon.
+- Tablet: 2 kolon.
+- Mobil: 1 kolon.

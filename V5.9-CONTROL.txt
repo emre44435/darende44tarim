@@ -1,0 +1,5 @@
+V5.9
+- Hakkımızda bölümüne Darende Tarım mağaza görseli eklendi.
+- Görsel 1200x800 WebP optimize edildi.
+- About medya alanı taşma ve boşluk oluşturmadan cover yerleşime geçirildi.
+- Mobilde minimum yükseklik 300px ve object-fit: cover kullanılıyor.

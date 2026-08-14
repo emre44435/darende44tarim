@@ -1,0 +1,7 @@
+V6.16 CAT POWER TOOLS KONTROL
+
+- CAT Power Tools marka bölümüne 3 gerçek ürün görseli eklendi.
+- Önceki 4 kartlık placeholder/fallback görünümü kaldırıldı; bölüm artık tam 3 ürün kartı gösterir.
+- Eski “Profesyonel El Aletleri” placeholder ürün kaydı kaldırıldı.
+- Ürünler genel ürün kataloğuna da eklendi.
+- Her ürünün Fiyat Sor bağlantısı ürün adını ve sayfa bağlantısını WhatsApp mesajına taşır.

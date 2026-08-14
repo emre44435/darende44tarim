@@ -1,0 +1,6 @@
+V6.18 KABİNLİ ÇAPA GÜNCELLEMESİ
+- Kullanıcının gönderdiği 4 yeni kabinli çapa görseli assets/images/products/capa/ klasörüne eklendi.
+- Solakoğlu ve Çapa marka vitrinlerine 4 yeni kabinli çapa kartı eklendi.
+- Kapalı Çapa vitrini 5 kart olacak şekilde güncellendi; yüklenen 4 yeni ürün + mevcut kabinli römorklu ürün gösteriliyor.
+- products.js katalog veri setine 4 yeni kabinli çapa ürünü eklendi.
+- Kapalı Çapa bağlantısı urunler.html?q=Kabinli olacak şekilde güncellendi.

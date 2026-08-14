@@ -1,0 +1,8 @@
+Darende Tarım V6.7 FINAL
+- Yeni ana logo tüm header/drawer/footer alanlarına uygulandı.
+- Yeni D amblemi favicon + PWA ikonları olarak uygulandı.
+- Masaüstü hero: sağlanan 1920x720 WebP. >=1180 px ekranlarda 8:3 oran kilidi ile tam oturur.
+- Mobil hero: sağlanan 887x1774 görsel WebP'ye optimize edildi. <=700 px ekranlarda kaynak oranına kilitlenir.
+- Hero görselinde esneme/stretch yok; object-fit cover + doğru oran.
+- Üst/sağ gri bant oluşturan hero/nav boşlukları final CSS override ile kaldırıldı.
+- Diğer sayfa bölümlerine dokunulmadı.

@@ -1,0 +1,9 @@
+V6.17 RTRMAX + KAMA & FACTOR KONTROL
+
+- RTRMAX marka bölümüne 4 gerçek ürün görseli eklendi.
+- RTRMAX: 18V Akülü Matkap, Zincirli Testere, Taşlama ve Sac Kesme Seti, Power Tools Ürün Grubu.
+- KAMA & FACTOR marka bölümündeki eski tek kart kaldırıldı ve 4 gerçek ürün kartıyla değiştirildi.
+- KAMA & FACTOR: Factor KDK10000CE3 Dizel Jeneratör, KAMA 4.0IS Inverter Jeneratör, Factor KDK6000E Benzinli Jeneratör, KAMA & Factor Jeneratör Çözümleri.
+- Tüm yeni görseller 800x800 WebP olarak optimize edildi.
+- Yeni ürünler genel ürün kataloğuna da eklendi.
+- Fiyat Sor bağlantıları mevcut ürün adı + sayfa linki WhatsApp sistemini kullanır.

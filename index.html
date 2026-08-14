@@ -14,7 +14,10 @@
   <meta property="og:url" content="https://darendetarim.com/">
   <meta property="og:image" content="https://darendetarim.com/assets/images/ui/darende-tarim-og.webp">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="icon" href="favicon.png" type="image/png" sizes="512x512">
+  <link rel="icon" href="assets/images/ui/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/images/ui/favicon-192.png" sizes="192x192">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="preload" as="image" href="assets/images/hero/hero-premium-desktop.webp" media="(min-width: 701px)" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/hero/hero-premium-mobile.webp" media="(max-width: 700px)" fetchpriority="high">
@@ -56,7 +59,7 @@
 <header class="site-header premium-header">
   <div class="container header-main premium-header-main">
     <a class="brand premium-brand" href="index.html" aria-label="Darende Tarım ana sayfa">
-      <img class="brand-logo" src="assets/images/ui/darende-tarim-logo.webp" width="760" height="553" alt="Darende Tarım Aletleri logosu">
+      <img class="brand-logo" src="assets/images/ui/darende-tarim-logo.webp" width="1661" height="934" alt="Darende Tarım Aletleri logosu">
     </a>
 
     <form class="search-form premium-search" role="search" data-global-search-form>
@@ -93,7 +96,7 @@
 <button class="mobile-nav-backdrop" type="button" aria-label="Menüyü kapat" data-menu-backdrop></button>
 <nav class="mobile-nav premium-mobile-drawer" id="mobile-nav" data-mobile-nav aria-label="Mobil menü" aria-hidden="true">
   <div class="drawer-top">
-    <div class="drawer-brand"><img src="assets/images/ui/darende-tarim-logo.webp" width="760" height="553" alt="Darende Tarım Aletleri logosu"></div>
+    <div class="drawer-brand"><img src="assets/images/ui/darende-tarim-logo.webp" width="1661" height="934" alt="Darende Tarım Aletleri logosu"></div>
     <button class="drawer-close" type="button" data-menu-close aria-label="Menüyü kapat"><img src="assets/icons/close.svg" alt="" width="22" height="22"></button>
   </div>
   <div class="drawer-welcome"><span>Hoş Geldiniz</span><strong>Tarımda Güç Sizde.</strong></div>
@@ -115,8 +118,8 @@
 <main id="main">
   <section class="hero hero-premium">
     <picture class="hero-background" aria-hidden="true">
-      <source media="(max-width: 700px)" srcset="assets/images/hero/hero-premium-mobile.webp">
-      <img src="assets/images/hero/hero-premium-desktop.webp" width="2048" height="768" alt="" fetchpriority="high" decoding="async">
+      <source media="(max-width: 700px)" srcset="assets/images/hero/hero-premium-mobile.webp" width="887" height="1774">
+      <img src="assets/images/hero/hero-premium-desktop.webp" width="1920" height="720" alt="" fetchpriority="high" decoding="async">
     </picture>
     <div class="hero-vignette" aria-hidden="true"></div>
     <div class="hero-light-sweep" aria-hidden="true"></div>
@@ -171,7 +174,7 @@
         <a class="text-link" href="urunler.html">Tüm ürünler →</a>
       </div>
       <div class="category-grid">
-        <a class="category-card" href="urunler.html?cat=Çapa%20Makineleri"><div class="category-media"><img src="assets/images/placeholders/category-capa.webp" width="800" height="800" loading="lazy" decoding="async" alt="Çapa makineleri görsel alanı"></div><div class="category-content"><h3>Çapa Makineleri</h3><p>Toprak işleme ve bahçe makineleri.</p></div></a>
+        <a class="category-card" href="urunler.html?q=Kabinli"><div class="category-media"><img src="assets/images/categories/kapali-capa-makineleri.webp" width="1000" height="1000" loading="lazy" decoding="async" alt="Kapalı çapa makineleri ve römorklu çapa araçları"></div><div class="category-content"><h3>Kapalı Çapa Makineleri</h3><p>Kabinli, yarım kabinli ve römorklu kapalı çapa makinelerini inceleyin.</p></div></a>
         <a class="category-card" href="urunler.html?cat=Jeneratörler"><div class="category-media"><img src="assets/images/placeholders/category-jenerator.webp" width="800" height="800" loading="lazy" decoding="async" alt="Jeneratörler görsel alanı"></div><div class="category-content"><h3>Jeneratörler</h3><p>Portatif güç çözümleri.</p></div></a>
         <a class="category-card" href="urunler.html?cat=Kaynak%20Makineleri"><div class="category-media"><img src="assets/images/placeholders/category-kaynak.webp" width="800" height="800" loading="lazy" decoding="async" alt="Kaynak makineleri görsel alanı"></div><div class="category-content"><h3>Kaynak Makineleri</h3><p>Atölye ve saha ekipmanları.</p></div></a>
         <a class="category-card" href="urunler.html?cat=Kompresörler"><div class="category-media"><img src="assets/images/placeholders/category-kompresor.webp" width="800" height="800" loading="lazy" decoding="async" alt="Hava kompresörleri görsel alanı"></div><div class="category-content"><h3>Hava Kompresörleri</h3><p>Atölye için hava çözümleri.</p></div></a>
@@ -244,16 +247,15 @@
       </div>
       <div class="brand-grid" role="list" aria-label="Çalışılan markalar">
         <button class="brand-button" type="button" data-brand="Bosch">BOSCH</button>
-        <button class="brand-button" type="button" data-brand="Husqvarna">HUSQVARNA</button>
-        <button class="brand-button" type="button" data-brand="Qvarna">QVARNA</button>
+        <button class="brand-button" type="button" data-brand="Husqvarna &amp; Qvarna">HUSQVARNA &amp; QVARNA</button>
         <button class="brand-button" type="button" data-brand="Moil">MOIL</button>
-        <button class="brand-button" type="button" data-brand="İşleyen">İŞLEYEN</button>
-        <button class="brand-button" type="button" data-brand="Kawashima">KAWASHIMA</button>
-        <button class="brand-button" type="button" data-brand="Rapco">RAPCO</button>
+        <button class="brand-button" type="button" data-brand="Solakoğlu">SOLAKOĞLU</button>
+        <button class="brand-button" type="button" data-brand="Kawashima &amp; Rapco">KAWASHIMA &amp; RAPCO</button>
         <button class="brand-button" type="button" data-brand="CAT Power Tools">CAT POWER TOOLS</button>
         <button class="brand-button" type="button" data-brand="RTRMAX">RTRMAX</button>
-        <button class="brand-button" type="button" data-brand="Kama">KAMA</button>
-        <button class="brand-button" type="button" data-brand="Factor">FACTOR</button>
+        <button class="brand-button" type="button" data-brand="Kama &amp; Factor">KAMA &amp; FACTOR</button>
+        <button class="brand-button" type="button" data-brand="Çapa">ÇAPA</button>
+        <button class="brand-button" type="button" data-brand="Kapalı Çapa">KAPALI ÇAPA</button>
       </div>
       <div class="brand-showcase" data-brand-showcase hidden>
         <div class="brand-showcase-head"><h3 data-brand-showcase-title>Marka Ürünleri</h3><a href="urunler.html" data-brand-showcase-link>Tüm marka ürünleri →</a></div>
@@ -356,7 +358,7 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand"><img class="footer-logo" src="assets/images/ui/darende-tarim-logo.webp" width="760" height="553" alt="Darende Tarım Aletleri logosu"><div><strong>DARENDE TARIM</strong><span>TARIM ALETLERİ</span></div></div>
+        <div class="footer-brand"><img class="footer-logo" src="assets/images/ui/darende-tarim-logo.webp" width="1661" height="934" alt="Darende Tarım Aletleri logosu"><div><strong>DARENDE TARIM</strong><span>TARIM ALETLERİ</span></div></div>
         <p class="footer-desc">Darende merkezli tarım, bahçe ve teknik ekipman satışı. Malatya, Gürün, Elbistan ve çevresine hizmet; Türkiye geneline kargo.</p>
       </div>
       <div><h3>Kurumsal</h3><div class="footer-links"><a href="index.html">Ana Sayfa</a><a href="#hakkimizda">Hakkımızda</a><a href="urunler.html">Ürünler</a><a href="#markalar">Markalar</a><a href="#iletisim">İletişim</a></div></div>

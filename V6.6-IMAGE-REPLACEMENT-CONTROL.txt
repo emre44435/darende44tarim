@@ -1,0 +1,6 @@
+V6.6 IMAGE REPLACEMENT
+- New Darende Tarım logo applied site-wide through assets/images/ui/darende-tarim-logo.webp
+- New desktop hero applied through assets/images/hero/hero-premium-desktop.webp
+- New mobile hero applied through assets/images/hero/hero-premium-mobile.webp
+- Intrinsic image dimensions updated in HTML to reduce layout shift.
+- No other section redesign performed in this revision.

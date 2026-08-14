@@ -1,0 +1,8 @@
+V6.11 - Ürün Bazlı WhatsApp Mesajı
+
+- Tüm dinamik ürün kartlarındaki "Fiyat Sor" butonları seçilen ürünün gerçek adını WhatsApp mesajına ekler.
+- Model, marka ve kategori mevcutsa mesaja otomatik eklenir.
+- Her mesajda ürüne özel darendetarim.com bağlantısı bulunur.
+- Ürün kataloğu bağlantıları ?product=URUN-ID ile ilgili ürünü doğrudan filtreler.
+- Marka vitrini ürünlerinde bağlantı ilgili marka ve ürün kartını açar / vurgular.
+- Genel WhatsApp butonları ürün seçilmediğinde genel iletişim mesajı göndermeye devam eder.

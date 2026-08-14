@@ -1,0 +1,7 @@
+V6.10 KAWASHIMA MARKA ALANI
+
+- Kawashima marka vitrini 4 placeholder yerine 3 gerçek ürün görseli gösterir.
+- Ürünler: KA10000CLE3 jeneratör, KA-T520 tırpan, KA-CS260 dal budama testeresi.
+- Masaüstünde 3 eşit kolon; tablet 2 kolon; mobil 1 kolon.
+- Aynı 3 ürün products.js içine de eklendi; marka filtresinde görünür.
+- Fiyat bilgisi uydurulmadı; WhatsApp Fiyat Sor akışı korunur.

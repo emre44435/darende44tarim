@@ -1,0 +1,6 @@
+V6.9 changes
+- Homepage nav surround changed from pale/cream gradient to dark navy (#021a3d) so it visually connects with hero.
+- Added 7 unique Çapa Makineleri product images from darende-tarim-1000x1000-webp.zip.
+- 08-romorklu-capa-makinasi-ikinci.webp was byte-identical to 02 and was intentionally not duplicated.
+- Homepage Çapa Makineleri category card now uses the supplied SLK 210 Atmaca image.
+- All new product cards use 1000x1000 WebP and existing responsive product grid.

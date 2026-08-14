@@ -1,0 +1,7 @@
+V6.13 BRAND GROUPS
+- KAMA + FACTOR tek marka bölümü yapıldı.
+- KAWASHIMA + RAPCO tek marka bölümü yapıldı.
+- İŞLEYEN etiketi SOLAKOĞLU olarak değiştirildi.
+- ÇAPA ve KAPALI ÇAPA olmak üzere iki yeni bölüm eklendi.
+- Uzun marka adları masaüstü ve mobilde taşmayacak şekilde hizalandı.
+- Solakoğlu ürün veri etiketi products.js içinde de güncellendi.

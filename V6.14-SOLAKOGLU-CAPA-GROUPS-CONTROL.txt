@@ -1,0 +1,10 @@
+V6.14 Solakoğlu / Çapa / Kapalı Çapa düzenlemesi
+
+- SOLAKOĞLU: 7 güncel çapa ürünü gösterilir.
+- ÇAPA: Aynı 7 çapa ürünü kategori vitrini olarak gösterilir.
+- KAPALI ÇAPA: 2 ürün gösterilir:
+  1) Kabinli Römorklu Çapa Makinası
+  2) Römorklu Çapa Makinası
+- SLK 22 Cobra eklendi.
+- Ürün kartlarındaki Fiyat Sor düğmeleri ürün adı, marka, kategori ve ürün bağlantısını WhatsApp mesajına taşır.
+- Masaüstü ve mobil marka ürün gridleri 2/3/4/5+ ürün sayılarına göre responsive davranır.

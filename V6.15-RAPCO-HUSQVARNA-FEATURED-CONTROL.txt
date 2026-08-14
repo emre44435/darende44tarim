@@ -1,0 +1,10 @@
+V6.15 FINAL KONTROL
+
+- Kawashima & Rapco bölümüne 3 yeni Rapco ürünü eklendi; mevcut 3 Kawashima ürünü korunarak toplam 6 ürün gösterilir.
+- Rapco ürünleri: OD-16A-1 İlaçlama Makinası, RP-5410 Sırt Tırpanı, RP-5800 Zincirli Testere.
+- Husqvarna bölümü eski 4 görsel yerine yüklenen 2 yeni 800x800 WebP ürünle tamamen değiştirildi.
+- Husqvarna: 445 X-Torq Motorlu Testere ve Sırt Motorlu Tırpan.
+- Yeni Rapco ve Husqvarna ürünleri urunler.html katalog verisine de eklendi.
+- Öne Çıkan Ürünler bölümünde Benzinli Çapa Makinesi kaldırıldı; ilk kartta Kabinli Römorklu Çapa Makinası gösterilir.
+- WhatsApp Fiyat Sor bağlantıları ürün adı/marka/model/kategori ve paylaşılabilir ürün bağlantısını taşır.
+- 6 ürünlü marka vitrini masaüstünde 3x2, tablette 2 sütun, mobilde 1 sütun responsive gösterilir.

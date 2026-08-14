@@ -13,11 +13,56 @@
     .replace(/[̀-ͯ]/g, '')
     .replace(/ı/g,'i');
 
-  function whatsappUrl(productName='') {
-    const message = productName
-      ? `Merhaba Darende Tarım, ${productName} hakkında fiyat ve detaylı bilgi almak istiyorum.`
-      : 'Merhaba Darende Tarım, ürünleriniz hakkında bilgi almak istiyorum.';
-    return `https://wa.me/${cfg.whatsapp}?text=${encodeURIComponent(message)}`;
+  function slugify(value='') {
+    return normalizeTR(value)
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '') || 'urun';
+  }
+
+  function siteBase() {
+    return String(cfg.domain || 'https://darendetarim.com').replace(/\/$/, '');
+  }
+
+  function catalogProductUrl(product) {
+    if (!product || !product.name) return `${siteBase()}/urunler.html`;
+    if (product.id) {
+      return `${siteBase()}/urunler.html?product=${encodeURIComponent(product.id)}#urunler`;
+    }
+    const query = new URLSearchParams({ q: product.name });
+    if (product.brand) query.set('brand', product.brand);
+    return `${siteBase()}/urunler.html?${query.toString()}#urunler`;
+  }
+
+  function brandProductUrl(brandName, productName) {
+    const query = new URLSearchParams({
+      brand: brandName || '',
+      item: slugify(productName)
+    });
+    return `${siteBase()}/?${query.toString()}#markalar`;
+  }
+
+  function whatsappUrl(product='') {
+    const info = typeof product === 'string' ? { name: product } : (product || {});
+    if (!info.name) {
+      const message = 'Merhaba Darende Tarım, ürünleriniz hakkında bilgi almak istiyorum.';
+      return `https://wa.me/${cfg.whatsapp}?text=${encodeURIComponent(message)}`;
+    }
+
+    const shareUrl = info.shareUrl || catalogProductUrl(info);
+    const lines = [
+      'Merhaba Darende Tarım,',
+      '',
+      'Aşağıdaki ürün hakkında güncel fiyat ve detaylı bilgi almak istiyorum.',
+      '',
+      `Ürün: ${info.name}`
+    ];
+    if (info.brand && info.brand !== 'Genel') lines.push(`Marka: ${info.brand}`);
+    if (info.model) lines.push(`Model: ${info.model}`);
+    if (info.category) lines.push(`Kategori: ${info.category}`);
+    lines.push(`Ürün bağlantısı: ${shareUrl}`);
+    lines.push('', 'Müsait olduğunuzda fiyat ve teknik detayları paylaşabilir misiniz? Teşekkür ederim.');
+
+    return `https://wa.me/${cfg.whatsapp}?text=${encodeURIComponent(lines.join('\n'))}`;
   }
 
   function imageIcon(name, alt='') {
@@ -130,6 +175,7 @@
   function productCard(product) {
     const article = document.createElement('article');
     article.className = 'product-card';
+    article.id = `product-${product.id || slugify(product.name)}`;
 
     const media = document.createElement('div'); media.className = 'product-media';
     const img = document.createElement('img');
@@ -148,7 +194,7 @@
 
     const footer = document.createElement('div'); footer.className = 'product-footer';
     const price = document.createElement('span'); price.className = 'price-label'; price.textContent = product.price ? `${product.price} TL` : 'Fiyat için WhatsApp';
-    const wa = document.createElement('a'); wa.className = 'product-wa'; wa.href = whatsappUrl(product.name); wa.target = '_blank'; wa.rel = 'noopener noreferrer';
+    const wa = document.createElement('a'); wa.className = 'product-wa'; wa.href = whatsappUrl(product); wa.setAttribute('aria-label', `${product.name} için WhatsApp'tan fiyat sor`); wa.target = '_blank'; wa.rel = 'noopener noreferrer';
     wa.append(imageIcon('whatsapp',''), document.createTextNode('Fiyat Sor'));
     footer.append(price, wa);
 
@@ -170,7 +216,9 @@
   function setupFeatured() {
     const target = qs('[data-featured-products]');
     if (!target) return;
-    renderProducts(target, products.filter(p => p.featured).slice(0,8));
+    const featured = products.filter(p => p.featured && p.id !== 'benzinli-capa-makinesi');
+    featured.sort((a,b) => Number(b.id === 'romorklu-capa-makinasi-kabinli') - Number(a.id === 'romorklu-capa-makinasi-kabinli'));
+    renderProducts(target, featured.slice(0,8));
   }
 
   function setupGlobalSearch() {
@@ -209,9 +257,15 @@
       const option = document.createElement('option'); option.value = name; option.textContent = name; brand.appendChild(option);
     });
 
-    if (search && params.get('q')) search.value = params.get('q');
+    const requestedProduct = params.get('product')
+      ? products.find(p => p.id === params.get('product'))
+      : null;
+
+    if (search && requestedProduct) search.value = requestedProduct.name;
+    else if (search && params.get('q')) search.value = params.get('q');
     if (category && params.get('cat') && [...category.options].some(o => o.value === params.get('cat'))) category.value = params.get('cat');
-    if (brand && params.get('brand') && [...brand.options].some(o => o.value === params.get('brand'))) brand.value = params.get('brand');
+    if (brand && requestedProduct?.brand && [...brand.options].some(o => o.value === requestedProduct.brand)) brand.value = requestedProduct.brand;
+    else if (brand && params.get('brand') && [...brand.options].some(o => o.value === params.get('brand'))) brand.value = params.get('brand');
 
     const apply = () => {
       const term = normalizeTR(search?.value);
@@ -229,6 +283,10 @@
       });
       renderProducts(grid,list);
       if (count) count.textContent = `${list.length} ürün gösteriliyor`;
+      if (requestedProduct) {
+        const requestedCard = document.getElementById(`product-${requestedProduct.id}`);
+        requestedCard?.classList.add('is-shared-product');
+      }
     };
     search?.addEventListener('input',apply);
     category?.addEventListener('change',apply);
@@ -244,6 +302,9 @@
     const link = qs('[data-brand-showcase-link]');
     const grid = qs('[data-brand-products]');
     if (!buttons.length || !showcase || !title || !grid) return;
+    const brandParams = new URLSearchParams(window.location.search);
+    const requestedBrand = brandParams.get('brand');
+    const requestedItem = brandParams.get('item');
 
     const brandShowcaseData = {
       Bosch: [
@@ -253,10 +314,82 @@
         { image: 'assets/images/brands/bosch-product-04.webp', name: 'Bosch Professional Akülü Matkap ve Taşlama Seti', text: 'Atölye ve saha kullanımı için matkap, kırıcı delici ve taşlama makinesi ürün grubu.' }
       ],
       Husqvarna: [
-        { image: 'assets/images/brands/husqvarna-product-01.webp', name: 'Husqvarna Profesyonel Motorlu Testere', text: 'Odun ve kütük kesim uygulamalarında kullanılan profesyonel motorlu testere ürün grubu.' },
-        { image: 'assets/images/brands/husqvarna-product-02.webp', name: 'Husqvarna Benzinli Motorlu Testere', text: 'Bahçe, odun kesimi ve farklı saha uygulamaları için benzinli motorlu testere seçeneği.' },
-        { image: 'assets/images/brands/husqvarna-product-03.webp', name: 'Husqvarna Güçlü Kesim Motorlu Testere', text: 'Yoğun kesim işlerinde kullanılmak üzere tasarlanmış motorlu testere ürün grubu.' },
-        { image: 'assets/images/brands/husqvarna-product-04.webp', name: 'Husqvarna Ağır Hizmet Motorlu Testere', text: 'Kalın odun ve kütük kesimi için güçlü motorlu testere ürün grubu.' }
+        { image: 'assets/images/brands/husqvarna/husqvarna-445-x-torq-testere-800x800.webp', name: 'Husqvarna 445 X-Torq Motorlu Testere', brand: 'Husqvarna', model: '445 X-Torq', category: 'Motorlu Testereler', text: 'Husqvarna 445 X-Torq motorlu testere için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/brands/husqvarna/husqvarna-sirt-motoru-tirpan-800x800.webp', name: 'Husqvarna Sırt Motorlu Tırpan', brand: 'Husqvarna', category: 'Bahçe Ekipmanları', text: 'Husqvarna sırt motorlu tırpan için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' }
+      ],
+      'Husqvarna & Qvarna': [
+        { image: 'assets/images/brands/husqvarna/husqvarna-445-x-torq-testere-800x800.webp', name: 'Husqvarna 445 X-Torq Motorlu Testere', brand: 'Husqvarna', model: '445 X-Torq', category: 'Motorlu Testereler', text: 'Husqvarna 445 X-Torq motorlu testere için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/brands/husqvarna/husqvarna-sirt-motoru-tirpan-800x800.webp', name: 'Husqvarna Sırt Motorlu Tırpan', brand: 'Husqvarna', category: 'Bahçe Ekipmanları', text: 'Husqvarna sırt motorlu tırpan için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' }
+      ],
+
+      Moil: [
+        { image: 'assets/images/brands/moil/moil-motor-yaglari-toplu.webp', name: 'Moil Motor Yağları Ürün Grubu', category: 'Motor Yağları', text: 'Moil 5W-30, 5W-40 ve 10W-40 motor yağı seçenekleri hakkında fiyat ve detaylı bilgi alabilirsiniz.' },
+        { image: 'assets/images/brands/moil/moil-5w-30.webp', name: 'Moil 5W-30 Motor Yağı 4L', model: '5W-30', category: 'Motor Yağları', text: 'Moil 5W-30 4 litre motor yağı için güncel fiyat ve ürün detaylarını WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/brands/moil/moil-5w-40.webp', name: 'Moil 5W-40 DX2 Motor Yağı 4L', model: '5W-40 DX2', category: 'Motor Yağları', text: 'Moil 5W-40 DX2 4 litre motor yağı için güncel fiyat ve ürün detaylarını WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/brands/moil/moil-10w-40.webp', name: 'Moil 10W-40 Diesel DX3 Motor Yağı 4L', model: '10W-40 DX3', category: 'Motor Yağları', text: 'Moil 10W-40 Diesel DX3 4 litre motor yağı için güncel fiyat ve ürün detaylarını WhatsApp üzerinden sorabilirsiniz.' }
+      ],
+      Kawashima: [
+        { image: 'assets/images/brands/kawashima/kawashima-jenerator-ka10000cle3.webp', name: 'Kawashima Jeneratör KA10000CLE3', brand: 'Kawashima', text: 'Kawashima KA10000CLE3 jeneratör için ürün bilgisi ve fiyatı WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/brands/kawashima/kawashima-tirpan-ka-t520.webp', name: 'Kawashima Tırpan KA-T520', brand: 'Kawashima', text: 'Kawashima KA-T520 tırpan için ürün bilgisi ve fiyatı WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/brands/kawashima/kawashima-dal-budama-testere-ka-cs260.webp', name: 'Kawashima Dal Budama Testeresi KA-CS260', brand: 'Kawashima', text: 'Kawashima KA-CS260 dal budama testeresi için ürün bilgisi ve fiyatı WhatsApp üzerinden sorabilirsiniz.' }
+      ],
+      'Kawashima & Rapco': [
+        { image: 'assets/images/brands/kawashima/kawashima-jenerator-ka10000cle3.webp', name: 'Kawashima Jeneratör KA10000CLE3', brand: 'Kawashima', model: 'KA10000CLE3', category: 'Jeneratörler', text: 'Kawashima KA10000CLE3 jeneratör için ürün bilgisi ve fiyatı WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/brands/kawashima/kawashima-tirpan-ka-t520.webp', name: 'Kawashima Tırpan KA-T520', brand: 'Kawashima', model: 'KA-T520', category: 'Bahçe Ekipmanları', text: 'Kawashima KA-T520 tırpan için ürün bilgisi ve fiyatı WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/brands/kawashima/kawashima-dal-budama-testere-ka-cs260.webp', name: 'Kawashima Dal Budama Testeresi KA-CS260', brand: 'Kawashima', model: 'KA-CS260', category: 'Motorlu Testereler', text: 'Kawashima KA-CS260 dal budama testeresi için ürün bilgisi ve fiyatı WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/brands/rapco/rapco-od-16a-1-ilaclama-makinasi-800x800.webp', name: 'Rapco OD-16A-1 İlaçlama Makinası', brand: 'Rapco', model: 'OD-16A-1', category: 'Zirai Ekipmanlar', text: 'Rapco OD-16A-1 ilaçlama makinası için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/brands/rapco/rapco-rp-5410-sirt-tirpan-800x800.webp', name: 'Rapco RP-5410 Sırt Tırpanı', brand: 'Rapco', model: 'RP-5410', category: 'Bahçe Ekipmanları', text: 'Rapco RP-5410 sırt tırpanı için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/brands/rapco/rapco-rp-5800-zincirli-testere-800x800.webp', name: 'Rapco RP-5800 Zincirli Testere', brand: 'Rapco', model: 'RP-5800', category: 'Motorlu Testereler', text: 'Rapco RP-5800 zincirli testere için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' }
+      ],
+      'CAT Power Tools': [
+        { image: 'assets/images/brands/cat-power-tools/cat-matkap-somun-sikma-800x800.webp', name: 'CAT Matkap ve Somun Sıkma Seti', brand: 'CAT Power Tools', category: 'El Aletleri', text: 'CAT Power Tools matkap ve somun sıkma ürün grubu için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/brands/cat-power-tools/cat-mini-testere-budama-makasi-800x800.webp', name: 'CAT Mini Testere ve Budama Makası Seti', brand: 'CAT Power Tools', category: 'Bahçe Ekipmanları', text: 'CAT Power Tools mini testere ve budama makası ürün grubu için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/brands/cat-power-tools/cat-taslama-kirici-delici-800x800.webp', name: 'CAT Taşlama ve Kırıcı Delici Seti', brand: 'CAT Power Tools', category: 'El Aletleri', text: 'CAT Power Tools taşlama ve kırıcı delici ürün grubu için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' }
+      ],
+      RTRMAX: [
+        { image: 'assets/images/brands/rtrmax/rtrmax-18v-akulu-matkap-800x800.webp', name: 'RTRMAX 18V Akülü Matkap', brand: 'RTRMAX', category: 'El Aletleri', text: 'RTRMAX 18V akülü matkap için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/brands/rtrmax/rtrmax-zincirli-testere-800x800.webp', name: 'RTRMAX Zincirli Testere', brand: 'RTRMAX', category: 'Motorlu Testereler', text: 'RTRMAX zincirli testere için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/brands/rtrmax/rtrmax-taslama-sac-kesme-seti-800x800.webp', name: 'RTRMAX Taşlama ve Sac Kesme Seti', brand: 'RTRMAX', category: 'El Aletleri', text: 'RTRMAX taşlama ve sac kesme ürün grubu için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/brands/rtrmax/rtrmax-power-tools-urun-grubu-800x800.webp', name: 'RTRMAX Power Tools Ürün Grubu', brand: 'RTRMAX', category: 'El Aletleri', text: 'RTRMAX matkap, testere, taşlama ve kırıcı-delici ürün grupları için fiyat ve detaylı bilgi alabilirsiniz.' }
+      ],
+      'Kama & Factor': [
+        { image: 'assets/images/brands/kama-factor/factor-kdk10000ce3-dizel-jenerator-800x800.webp', name: 'Factor KDK10000CE3 Dizel Jeneratör', brand: 'Factor', model: 'KDK10000CE3', category: 'Jeneratörler', text: 'Factor KDK10000CE3 dizel jeneratör için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/brands/kama-factor/kama-4-0is-inverter-jenerator-800x800.webp', name: 'KAMA 4.0IS Inverter Jeneratör', brand: 'Kama', model: '4.0IS', category: 'Jeneratörler', text: 'KAMA 4.0IS inverter jeneratör için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/brands/kama-factor/factor-kdk6000e-benzinli-jenerator-800x800.webp', name: 'Factor KDK6000E Benzinli Jeneratör', brand: 'Factor', model: 'KDK6000E', category: 'Jeneratörler', text: 'Factor KDK6000E benzinli jeneratör için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/brands/kama-factor/kama-factor-jenerator-cozumleri-800x800.webp', name: 'KAMA & Factor Jeneratör Çözümleri', brand: 'Factor', category: 'Jeneratörler', text: 'KAMA ve Factor jeneratör seçenekleri için model, kullanım alanı ve güncel fiyat bilgisini WhatsApp üzerinden alabilirsiniz.' }
+      ],
+      'Solakoğlu': [
+        { image: 'assets/images/products/capa/09-karadeniz-kirmizi-kabinli-capa.webp', name: 'Karadeniz Kırmızı Kabinli Çapa Makinası', brand: 'Solakoğlu', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz kırmızı kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/10-karadeniz-gri-kabinli-capa.webp', name: 'Karadeniz Gri Kabinli Çapa Makinası', brand: 'Solakoğlu', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz gri kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/11-karadeniz-siyah-kabinli-capa.webp', name: 'Karadeniz Siyah Kabinli Çapa Makinası', brand: 'Solakoğlu', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz siyah kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/12-karadeniz-gri-4x4-kabinli-capa.webp', name: 'Karadeniz 4x4 Kabinli Çapa Makinası', brand: 'Solakoğlu', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz 4x4 kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/01-romorklu-capa-makinasi-kabinli.webp', name: 'Kabinli Römorklu Çapa Makinası', brand: 'Solakoğlu', category: 'Çapa Makineleri', text: 'Kabinli römorklu çapa makinası için güncel fiyat, model ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/02-romorklu-capa-makinasi.webp', name: 'Römorklu Çapa Makinası', brand: 'Solakoğlu', category: 'Çapa Makineleri', text: 'Römorklu çapa makinası için güncel fiyat, model ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/03-slk-210-atmaca.webp', name: 'SLK 210 Atmaca', brand: 'Solakoğlu', model: 'SLK 210 Atmaca', category: 'Çapa Makineleri', text: 'SLK 210 Atmaca çapa makinesi için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/04-slk-12-korkut.webp', name: 'SLK 12 Korkut', brand: 'Solakoğlu', model: 'SLK 12 Korkut', category: 'Çapa Makineleri', text: 'SLK 12 Korkut çapa makinesi için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/05-slk-14-korkut.webp', name: 'SLK 14 Korkut', brand: 'Solakoğlu', model: 'SLK 14 Korkut', category: 'Çapa Makineleri', text: 'SLK 14 Korkut çapa makinesi için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/06-slk-17-cobra.webp', name: 'SLK 17 Cobra', brand: 'Solakoğlu', model: 'SLK 17 Cobra', category: 'Çapa Makineleri', text: 'SLK 17 Cobra çapa makinesi için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/07-slk-22-cobra.webp', name: 'SLK 22 Cobra', brand: 'Solakoğlu', model: 'SLK 22 Cobra', category: 'Çapa Makineleri', text: 'SLK 22 Cobra çapa makinesi için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' }
+      ],
+      'Çapa': [
+        { image: 'assets/images/products/capa/09-karadeniz-kirmizi-kabinli-capa.webp', name: 'Karadeniz Kırmızı Kabinli Çapa Makinası', brand: 'Solakoğlu', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz kırmızı kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/10-karadeniz-gri-kabinli-capa.webp', name: 'Karadeniz Gri Kabinli Çapa Makinası', brand: 'Solakoğlu', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz gri kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/11-karadeniz-siyah-kabinli-capa.webp', name: 'Karadeniz Siyah Kabinli Çapa Makinası', brand: 'Solakoğlu', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz siyah kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/12-karadeniz-gri-4x4-kabinli-capa.webp', name: 'Karadeniz 4x4 Kabinli Çapa Makinası', brand: 'Solakoğlu', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz 4x4 kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/01-romorklu-capa-makinasi-kabinli.webp', name: 'Kabinli Römorklu Çapa Makinası', brand: 'Solakoğlu', category: 'Çapa Makineleri', text: 'Kabinli römorklu çapa makinası için güncel fiyat, model ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/02-romorklu-capa-makinasi.webp', name: 'Römorklu Çapa Makinası', brand: 'Solakoğlu', category: 'Çapa Makineleri', text: 'Römorklu çapa makinası için güncel fiyat, model ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/03-slk-210-atmaca.webp', name: 'SLK 210 Atmaca', brand: 'Solakoğlu', model: 'SLK 210 Atmaca', category: 'Çapa Makineleri', text: 'SLK 210 Atmaca çapa makinesi için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/04-slk-12-korkut.webp', name: 'SLK 12 Korkut', brand: 'Solakoğlu', model: 'SLK 12 Korkut', category: 'Çapa Makineleri', text: 'SLK 12 Korkut çapa makinesi için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/05-slk-14-korkut.webp', name: 'SLK 14 Korkut', brand: 'Solakoğlu', model: 'SLK 14 Korkut', category: 'Çapa Makineleri', text: 'SLK 14 Korkut çapa makinesi için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/06-slk-17-cobra.webp', name: 'SLK 17 Cobra', brand: 'Solakoğlu', model: 'SLK 17 Cobra', category: 'Çapa Makineleri', text: 'SLK 17 Cobra çapa makinesi için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/07-slk-22-cobra.webp', name: 'SLK 22 Cobra', brand: 'Solakoğlu', model: 'SLK 22 Cobra', category: 'Çapa Makineleri', text: 'SLK 22 Cobra çapa makinesi için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' }
+      ],
+      'Kapalı Çapa': [
+        { image: 'assets/images/products/capa/09-karadeniz-kirmizi-kabinli-capa.webp', name: 'Karadeniz Kırmızı Kabinli Çapa Makinası', brand: 'Solakoğlu', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz kırmızı kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/10-karadeniz-gri-kabinli-capa.webp', name: 'Karadeniz Gri Kabinli Çapa Makinası', brand: 'Solakoğlu', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz gri kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/11-karadeniz-siyah-kabinli-capa.webp', name: 'Karadeniz Siyah Kabinli Çapa Makinası', brand: 'Solakoğlu', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz siyah kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/12-karadeniz-gri-4x4-kabinli-capa.webp', name: 'Karadeniz 4x4 Kabinli Çapa Makinası', brand: 'Solakoğlu', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz 4x4 kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/01-romorklu-capa-makinasi-kabinli.webp', name: 'Kabinli Römorklu Çapa Makinası', brand: 'Solakoğlu', category: 'Çapa Makineleri', text: 'Kabinli römorklu çapa makinası için güncel fiyat, model ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' }
       ]
     };
 
@@ -266,15 +399,30 @@
       text: 'Ürün bilgisi ve fiyat için WhatsApp üzerinden ulaşın.'
     }));
 
+    const showcaseLinks = {
+      'Husqvarna & Qvarna': 'urunler.html?q=Husqvarna',
+      'Kawashima & Rapco': 'urunler.html',
+      'Kama & Factor': 'urunler.html?brand=Factor',
+      'Solakoğlu': 'urunler.html?brand=Solakoğlu',
+      'Çapa': 'urunler.html?cat=Çapa%20Makineleri',
+      'Kapalı Çapa': 'urunler.html?q=Kabinli'
+    };
+
     const show = (brandName, shouldScroll = true) => {
       buttons.forEach(b => b.classList.toggle('is-active', b.dataset.brand === brandName));
       title.textContent = `${brandName} Ürünleri`;
-      if (link) link.href = `urunler.html?brand=${encodeURIComponent(brandName)}`;
+      if (link) link.href = showcaseLinks[brandName] || `urunler.html?brand=${encodeURIComponent(brandName)}`;
       const items = brandShowcaseData[brandName] || fallbackItems(brandName);
+      grid.classList.toggle('is-two', items.length === 2);
+      grid.classList.toggle('is-three', items.length === 3);
+      grid.classList.toggle('is-five', items.length === 5);
+      grid.classList.toggle('is-six', items.length === 6);
       const fragment = document.createDocumentFragment();
 
       items.forEach((product, index) => {
         const item = document.createElement('article'); item.className = 'brand-product';
+        item.dataset.item = slugify(product.name);
+        if (requestedItem && requestedItem === item.dataset.item) item.classList.add('is-shared-product');
         const img = document.createElement('img');
         img.src = product.image;
         img.alt = product.name;
@@ -287,7 +435,8 @@
         const span = document.createElement('span'); span.textContent = product.text;
         const wa = document.createElement('a');
         wa.className = 'brand-product-wa';
-        wa.href = whatsappUrl(product.name);
+        wa.href = whatsappUrl({ ...product, brand: product.brand || brandName, shareUrl: brandProductUrl(brandName, product.name) });
+        wa.setAttribute('aria-label', `${product.name} için WhatsApp'tan fiyat sor`);
         wa.target = '_blank';
         wa.rel = 'noopener noreferrer';
         wa.append(imageIcon('whatsapp',''), document.createTextNode('Fiyat Sor'));
@@ -300,7 +449,14 @@
     };
 
     buttons.forEach(button => button.addEventListener('click', () => show(button.dataset.brand)));
-    show('Bosch', false);
+    const initialBrand = buttons.some(button => button.dataset.brand === requestedBrand) ? requestedBrand : 'Bosch';
+    show(initialBrand, false);
+    if (requestedBrand || requestedItem) {
+      requestAnimationFrame(() => {
+        const shared = qs('.brand-product.is-shared-product', grid);
+        (shared || showcase).scrollIntoView({ block: 'center', behavior: 'smooth' });
+      });
+    }
   }
 
   function setupGuides() {

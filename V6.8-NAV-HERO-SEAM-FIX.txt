@@ -1,0 +1,6 @@
+Darende Tarım V6.8 — Nav/Hero Seam Fix
+- Masaüstünde menü altındaki boş/gri şerit kaldırıldı.
+- Hero arka plan görseli navigasyon kartının hemen altına taşındı.
+- Mobilde menü ile banner arasındaki boş alan kaldırıldı.
+- Mobil banner kadrajı hafif yakınlaştırılıp ürün grubu yukarı alındı.
+- Diğer sayfa bölümlerine dokunulmadı.

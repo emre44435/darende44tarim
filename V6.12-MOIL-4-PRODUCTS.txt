@@ -1,0 +1,7 @@
+DARENDE TARIM V6.12 — MOIL ÜRÜNLERİ
+
+- Moil marka alanına 4 kart eklendi.
+- 1 toplu Moil motor yağları kartı + 3 gerçek ürün kartı kullanıldı.
+- 5W-30, 5W-40 DX2 ve 10W-40 Diesel DX3 görselleri 800x800 WebP olarak eklendi.
+- Her Fiyat Sor butonu seçilen Moil ürününün adını, marka/model bilgisini ve doğrudan ürün bağlantısını WhatsApp mesajına ekler.
+- Ürünler sayfasında Moil marka filtresi ile bu ürünler listelenir.

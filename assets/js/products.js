@@ -1,6 +1,6 @@
 'use strict';
 window.DARENDE_BRANDS = Object.freeze([
-  'Bosch','Husqvarna','Qvarna','Moil','Solakoğlu','Kawashima','Rapco','CAT Power Tools','RTRMAX','Kama','Factor'
+  'Bosch','Husqvarna','Qvarna','Moil','Solakoğlu','Kawashima','Rapco','CAT Power Tools','RTRMAX','Kama','Factor','Kapalı Çapa'
 ]);
 
 /*
@@ -123,34 +123,22 @@ window.DARENDE_PRODUCTS = Object.freeze([
     keywords:['zirai ekipman','solakoğlu']
   },
   {
-    id:'cat-matkap-somun-sikma-seti', name:'CAT Matkap ve Somun Sıkma Seti', category:'El Aletleri', brand:'CAT Power Tools', model:'',
-    image:'assets/images/brands/cat-power-tools/cat-matkap-somun-sikma-800x800.webp', alt:'CAT Power Tools matkap ve somun sıkma seti ürün görseli',
-    shortDescription:'CAT Power Tools matkap ve somun sıkma ürün grubu. Güncel fiyat ve ürün bilgisi için WhatsApp üzerinden iletişime geçebilirsiniz.', price:null, featured:false,
-    keywords:['cat power tools','cat matkap','somun sıkma','el aletleri']
+    id:'catpower-sarjli-matkap', name:'CATPOWER Şarjlı Matkap', category:'El Aletleri', brand:'CAT Power Tools', model:'',
+    image:'assets/images/brands/cat-power-tools/catpower-sarjli-matkap-800x800.webp', alt:'CATPOWER şarjlı matkap ürün görseli',
+    shortDescription:'CATPOWER akülü şarjlı matkap. Güncel fiyat ve ürün bilgisi için WhatsApp üzerinden iletişime geçebilirsiniz.', price:null, featured:false,
+    keywords:['catpower','cat power tools','şarjlı matkap','akülü matkap','el aletleri']
   },
   {
-    id:'cat-mini-testere-budama-makasi-seti', name:'CAT Mini Testere ve Budama Makası Seti', category:'Bahçe Ekipmanları', brand:'CAT Power Tools', model:'',
-    image:'assets/images/brands/cat-power-tools/cat-mini-testere-budama-makasi-800x800.webp', alt:'CAT Power Tools mini testere ve budama makası seti ürün görseli',
-    shortDescription:'CAT Power Tools mini testere ve budama makası ürün grubu. Güncel fiyat ve ürün bilgisi için WhatsApp üzerinden iletişime geçebilirsiniz.', price:null, featured:false,
-    keywords:['cat power tools','mini testere','budama makası','bahçe ekipmanları']
+    id:'catpower-sarjli-somun-sikma', name:'CATPOWER Şarjlı Somun Sıkma', category:'El Aletleri', brand:'CAT Power Tools', model:'',
+    image:'assets/images/brands/cat-power-tools/catpower-somun-sikma-800x800.webp', alt:'CATPOWER şarjlı somun sıkma ürün görseli',
+    shortDescription:'CATPOWER akülü somun sıkma makinesi. Güncel fiyat ve ürün bilgisi için WhatsApp üzerinden iletişime geçebilirsiniz.', price:null, featured:false,
+    keywords:['catpower','cat power tools','somun sıkma','akülü somun sıkma','el aletleri']
   },
   {
-    id:'cat-taslama-kirici-delici-seti', name:'CAT Taşlama ve Kırıcı Delici Seti', category:'El Aletleri', brand:'CAT Power Tools', model:'',
-    image:'assets/images/brands/cat-power-tools/cat-taslama-kirici-delici-800x800.webp', alt:'CAT Power Tools taşlama ve kırıcı delici seti ürün görseli',
-    shortDescription:'CAT Power Tools taşlama ve kırıcı delici ürün grubu. Güncel fiyat ve ürün bilgisi için WhatsApp üzerinden iletişime geçebilirsiniz.', price:null, featured:false,
-    keywords:['cat power tools','taşlama','kırıcı delici','el aletleri']
-  },
-  {
-    id:'romorklu-capa-makinasi-kabinli', name:'Kabinli Römorklu Çapa Makinası', category:'Çapa Makineleri', brand:'Solakoğlu', model:'',
-    image:'assets/images/products/capa/01-romorklu-capa-makinasi-kabinli.webp', alt:'Darende Tarım kabinli römorklu çapa makinası',
-    shortDescription:'Kabinli römorklu tarım aracı ürün görseli. Fiyat ve model detayı için WhatsApp üzerinden bilgi alabilirsiniz.', price:null, featured:true,
-    keywords:['kabinli römorklu çapa makinası','darende çapa makinesi','römorklu tarım aracı']
-  },
-  {
-    id:'romorklu-capa-makinasi-yeni', name:'Römorklu Çapa Makinası', category:'Çapa Makineleri', brand:'Solakoğlu', model:'',
-    image:'assets/images/products/capa/02-romorklu-capa-makinasi.webp', alt:'Darende Tarım römorklu çapa makinası',
-    shortDescription:'Römorklu çapa makinası ürün görseli. Fiyat, stok ve model detayı için WhatsApp üzerinden iletişime geçebilirsiniz.', price:null, featured:false,
-    keywords:['römorklu çapa makinası','darende tarım aletleri','römorklu tarım aracı']
+    id:'catpower-sarjli-kirici-delici', name:'CATPOWER Şarjlı Kırıcı Delici', category:'El Aletleri', brand:'CAT Power Tools', model:'',
+    image:'assets/images/brands/cat-power-tools/catpower-kirici-delici-800x800.webp', alt:'CATPOWER şarjlı kırıcı delici ürün görseli',
+    shortDescription:'CATPOWER akülü kırıcı-delici. Güncel fiyat ve ürün bilgisi için WhatsApp üzerinden iletişime geçebilirsiniz.', price:null, featured:false,
+    keywords:['catpower','cat power tools','kırıcı delici','şarjlı hilti','akülü hilti','el aletleri']
   },
   {
     id:'slk-210-atmaca', name:'SLK 210 Atmaca', category:'Çapa Makineleri', brand:'Solakoğlu', model:'SLK 210 Atmaca',
@@ -231,25 +219,25 @@ window.DARENDE_PRODUCTS = Object.freeze([
     keywords:['kama factor jeneratör','jeneratör çözümleri','factor power']
   }
   ,{
-    id:'karadeniz-kirmizi-kabinli-capa-makinasi', name:'Karadeniz Kırmızı Kabinli Çapa Makinası', category:'Çapa Makineleri', brand:'Solakoğlu', model:'4x4 Kabinli',
+    id:'karadeniz-kirmizi-kabinli-capa-makinasi', name:'Karadeniz Kırmızı Kabinli Çapa Makinası', category:'Çapa Makineleri', brand:'Kapalı Çapa', model:'4x4 Kabinli',
     image:'assets/images/products/capa/09-karadeniz-kirmizi-kabinli-capa.webp', alt:'Karadeniz kırmızı kabinli çapa makinası',
     shortDescription:'Karadeniz kırmızı kabinli çapa makinası için güncel fiyat, model ve teknik detayları WhatsApp üzerinden alabilirsiniz.', price:null, featured:false,
     keywords:['kabinli çapa makinası','karadeniz makina','4x4 kabinli çapa','darende çapa']
   },
   {
-    id:'karadeniz-gri-kabinli-capa-makinasi', name:'Karadeniz Gri Kabinli Çapa Makinası', category:'Çapa Makineleri', brand:'Solakoğlu', model:'4x4 Kabinli',
+    id:'karadeniz-gri-kabinli-capa-makinasi', name:'Karadeniz Gri Kabinli Çapa Makinası', category:'Çapa Makineleri', brand:'Kapalı Çapa', model:'4x4 Kabinli',
     image:'assets/images/products/capa/10-karadeniz-gri-kabinli-capa.webp', alt:'Karadeniz gri kabinli çapa makinası',
     shortDescription:'Karadeniz gri kabinli çapa makinası için güncel fiyat, model ve teknik detayları WhatsApp üzerinden alabilirsiniz.', price:null, featured:false,
     keywords:['kabinli çapa makinası','karadeniz makina','gri kabinli çapa','darende çapa']
   },
   {
-    id:'karadeniz-siyah-kabinli-capa-makinasi', name:'Karadeniz Siyah Kabinli Çapa Makinası', category:'Çapa Makineleri', brand:'Solakoğlu', model:'4x4 Kabinli',
+    id:'karadeniz-siyah-kabinli-capa-makinasi', name:'Karadeniz Siyah Kabinli Çapa Makinası', category:'Çapa Makineleri', brand:'Kapalı Çapa', model:'4x4 Kabinli',
     image:'assets/images/products/capa/11-karadeniz-siyah-kabinli-capa.webp', alt:'Karadeniz siyah kabinli çapa makinası',
     shortDescription:'Karadeniz siyah kabinli çapa makinası için güncel fiyat, model ve teknik detayları WhatsApp üzerinden alabilirsiniz.', price:null, featured:false,
     keywords:['kabinli çapa makinası','karadeniz makina','siyah kabinli çapa','darende çapa']
   },
   {
-    id:'karadeniz-gri-4x4-kabinli-capa-makinasi', name:'Karadeniz 4x4 Kabinli Çapa Makinası', category:'Çapa Makineleri', brand:'Solakoğlu', model:'4x4 Kabinli',
+    id:'karadeniz-gri-4x4-kabinli-capa-makinasi', name:'Karadeniz 4x4 Kabinli Çapa Makinası', category:'Çapa Makineleri', brand:'Kapalı Çapa', model:'4x4 Kabinli',
     image:'assets/images/products/capa/12-karadeniz-gri-4x4-kabinli-capa.webp', alt:'Karadeniz 4x4 kabinli çapa makinası',
     shortDescription:'Karadeniz 4x4 kabinli çapa makinası için güncel fiyat, model ve teknik detayları WhatsApp üzerinden alabilirsiniz.', price:null, featured:false,
     keywords:['kabinli çapa makinası','karadeniz makina','4x4 çapa makinası','darende çapa']

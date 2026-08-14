@@ -1,0 +1,7 @@
+V6.31 CATPOWER VE ÖNE ÇIKAN GRUPLAR
+
+- Çalıştığımız Markalar alanındaki CAT logosu CATPOWER Tools logosuyla değiştirildi.
+- CATPOWER ürün vitrini yalnızca üç ürüne indirildi: şarjlı matkap, somun sıkma ve kırıcı-delici.
+- Eski CAT ürün görselleri kaldırılarak yeni 800x800 WebP görseller eklendi.
+- Öne Çıkan Ürün Grupları bölümünde çapa ve kaynak görselleri doğru kartlara yerleştirildi.
+- JavaScript dosyalarına v6.31 önbellek parametresi eklendi.

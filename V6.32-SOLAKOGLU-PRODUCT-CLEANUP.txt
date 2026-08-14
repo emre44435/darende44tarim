@@ -1,0 +1,7 @@
+Darende Tarım v6.32
+
+- Solakoğlu ürünlerinden dört kabinli Karadeniz modeli kaldırıldı.
+- Bu dört ürün yalnızca Kapalı Çapa markası altında bırakıldı.
+- Kabinli Römorklu Çapa Makinası ve Römorklu Çapa Makinası kaldırıldı.
+- Diğer ürünler ve tasarım alanları değiştirilmedi.
+- JavaScript önbellek sürümü 6.32 olarak güncellendi.

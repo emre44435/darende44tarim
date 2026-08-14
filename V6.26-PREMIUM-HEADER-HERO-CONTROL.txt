@@ -13,6 +13,13 @@ V6.28 PREMIUM MOBILE REFINEMENT
 - İçerik hafif cam panelle bannerdan ayrıldı; araçların görünürlüğü artırıldı.
 - Soldan sağa hero parlama ve başlık shimmer animasyonları korundu.
 
+V6.29 OPEN MOBILE COMPOSITION
+- Mobil cam/blok içerik paneli tamamen kaldırıldı.
+- Metin doğrudan bannerın kesintisiz devamı üzerinde konumlandırıldı.
+- İçerik üst bölgede kompakt tutuldu; çapa makineleri ve mağaza tabelası hemen altında görünür bırakıldı.
+- Mobil görsel yukarıdan ve tam oranına yakın gösterilerek araç/tabela kadraj kaybı önlendi.
+- CSS ve hero görsellerine sürüm parametresi eklenerek GitHub Pages önbellek sorunu azaltıldı.
+
 - Masaüstü ana sayfa üst alanı tek, koyu ve şeffaf premium menüde birleştirildi.
 - Eski masaüstü beyaz logo/arama satırı ve ayrı kategori menüsü ana sayfada kaldırıldı.
 - Telefon, WhatsApp ve mağaza konumu hızlı erişim ikonları korundu.

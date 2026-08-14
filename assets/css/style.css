@@ -1742,3 +1742,105 @@ html,body{max-width:100%;overflow-x:clip}
   .home-page .hero-v725-copy{font-size:11.5px!important}
   .home-page .hero-v725-actions .btn{font-size:11.5px!important;padding-inline:8px!important}
 }
+
+/* V6.29 — OPEN MOBILE COMPOSITION / SUBJECT-SAFE HERO */
+@media (max-width:700px){
+  .home-page .hero-premium.hero-v725{
+    min-height:680px!important;
+    height:680px!important;
+    aspect-ratio:auto!important;
+    background:#020f24!important;
+    overflow:hidden!important
+  }
+  .home-page .hero-v725 .hero-background{inset:0!important}
+  .home-page .hero-v725 .hero-background img{
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:center top!important;
+    filter:saturate(1.07) contrast(1.05) brightness(.86)!important
+  }
+  .home-page .hero-v725 .hero-vignette{
+    background:
+      linear-gradient(180deg,rgba(0,11,30,.90) 0%,rgba(0,14,37,.68) 23%,rgba(0,15,39,.28) 43%,rgba(0,11,31,.08) 58%,rgba(0,8,24,.50) 100%),
+      linear-gradient(90deg,rgba(0,12,34,.52) 0%,rgba(0,12,34,.16) 70%,transparent 100%)!important
+  }
+  .home-page .hero-v725::before{
+    display:block!important;
+    z-index:-2!important;
+    background:radial-gradient(circle at 18% 20%,rgba(31,134,246,.14),transparent 32%),linear-gradient(180deg,transparent 66%,rgba(0,7,21,.32))!important
+  }
+  .home-page .hero-v725 .hero-light-sweep{
+    display:block!important;
+    z-index:2!important;
+    width:27%!important;
+    opacity:.52!important;
+    mix-blend-mode:screen!important;
+    animation:heroSweep 7s ease-in-out infinite!important
+  }
+  .home-page .hero-v725 .hero-premium-inner{
+    width:calc(100% - 32px)!important;
+    min-height:680px!important;
+    height:680px!important;
+    padding:24px 0 22px!important;
+    align-items:flex-start!important
+  }
+  .home-page .hero-v725 .hero-v725-content{
+    width:100%!important;
+    max-width:390px!important;
+    margin:0!important;
+    padding:0 2px!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important
+  }
+  .home-page .hero-kicker{
+    margin:0 0 10px!important;
+    font-size:8.5px!important;
+    letter-spacing:.14em!important;
+    color:#e4f2ff!important;
+    text-shadow:0 2px 12px rgba(0,0,0,.55)!important
+  }
+  .home-page .hero-v725-title{
+    max-width:355px!important;
+    font-size:clamp(38px,10.4vw,44px)!important;
+    line-height:.96!important;
+    letter-spacing:-.05em!important;
+    text-transform:none!important
+  }
+  .home-page .hero-v725-title span{color:#fff!important;-webkit-text-fill-color:#fff!important;text-shadow:0 8px 28px rgba(0,0,0,.52),0 0 15px rgba(255,255,255,.10)!important}
+  .home-page .hero-v725-title strong{animation:titleShimmer 5.8s linear infinite,heroGlow 4s ease-in-out infinite!important}
+  .home-page .hero-v725-copy{
+    max-width:340px!important;
+    margin:14px 0 16px!important;
+    color:rgba(241,248,255,.94)!important;
+    font-size:12px!important;
+    line-height:1.55!important;
+    text-shadow:0 2px 13px rgba(0,0,0,.62)!important
+  }
+  .home-page .hero-quick-tags,.home-page .hero-v725-proof{display:none!important}
+  .home-page .hero-v725-actions{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+    width:100%!important;
+    max-width:340px!important;
+    gap:8px!important
+  }
+  .home-page .hero-v725-actions .btn{
+    min-height:44px!important;
+    padding:0 10px!important;
+    border-radius:13px!important;
+    font-size:12px!important;
+    box-shadow:0 10px 24px rgba(0,8,28,.24),inset 0 1px 0 rgba(255,255,255,.15)!important
+  }
+}
+
+@media (max-width:360px){
+  .home-page .hero-premium.hero-v725,.home-page .hero-v725 .hero-premium-inner{min-height:650px!important;height:650px!important}
+  .home-page .hero-v725 .hero-premium-inner{width:calc(100% - 26px)!important;padding-top:22px!important}
+  .home-page .hero-v725-title{font-size:37px!important}
+  .home-page .hero-v725-copy{font-size:11.5px!important;margin-block:12px 14px!important}
+}

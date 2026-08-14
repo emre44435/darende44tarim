@@ -20,6 +20,12 @@ V6.29 OPEN MOBILE COMPOSITION
 - Mobil görsel yukarıdan ve tam oranına yakın gösterilerek araç/tabela kadraj kaybı önlendi.
 - CSS ve hero görsellerine sürüm parametresi eklenerek GitHub Pages önbellek sorunu azaltıldı.
 
+V6.30 LIGHTWEIGHT MOBILE HERO CROP
+- Mobil hero yaklaşık 120 px kısaltıldı.
+- Alttaki gereksiz boş zemin kırpıldı; tabela ve çapalar odakta kaldı.
+- Yeni kart, rozet veya görsel kalabalık eklenmedi.
+- Soldan sağa parlama animasyonu korundu.
+
 - Masaüstü ana sayfa üst alanı tek, koyu ve şeffaf premium menüde birleştirildi.
 - Eski masaüstü beyaz logo/arama satırı ve ayrı kategori menüsü ana sayfada kaldırıldı.
 - Telefon, WhatsApp ve mağaza konumu hızlı erişim ikonları korundu.

@@ -1,0 +1,7 @@
+V6.17 – Çalıştığımız Markalar logo kartları
+- Düz marka yazıları kaldırıldı.
+- 10 marka/grup için kullanıcı tarafından sağlanan logolar eklendi.
+- Husqvarna + Qvarna tek kartta birleştirildi.
+- Kartların altında premium "Ürünleri İncele" CTA görünümü eklendi.
+- Kartın tamamı tıklanabilir; mevcut ürün gösterim JS akışı korunur.
+- Masaüstü/tablet/mobil grid eşit hizalı ve responsive.

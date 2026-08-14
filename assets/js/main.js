@@ -216,9 +216,56 @@
   function setupFeatured() {
     const target = qs('[data-featured-products]');
     if (!target) return;
-    const featured = products.filter(p => p.featured && p.id !== 'benzinli-capa-makinesi');
-    featured.sort((a,b) => Number(b.id === 'romorklu-capa-makinasi-kabinli') - Number(a.id === 'romorklu-capa-makinasi-kabinli'));
-    renderProducts(target, featured.slice(0,8));
+
+    const getProduct = (id) => products.find(p => p.id === id);
+    const featuredSelections = [
+      {
+        id: 'bosch-professional-akulu-kirici-delici',
+        name: 'Bosch Professional Akülü Kırıcı Delici',
+        category: 'El Aletleri',
+        brand: 'Bosch',
+        model: '',
+        image: 'assets/images/brands/bosch-product-01.webp',
+        alt: 'Bosch Professional akülü kırıcı delici ürün görseli',
+        shortDescription: 'Bosch Professional kırıcı delici ürün grubu için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.',
+        price: null,
+        shareUrl: brandProductUrl('Bosch', 'Bosch Professional Akülü Kırıcı Delici')
+      },
+      {
+        ...getProduct('husqvarna-445-x-torq-testere'),
+        brand: 'Husqvarna & Qvarna',
+        shareUrl: brandProductUrl('Husqvarna & Qvarna', 'Husqvarna 445 X-Torq Motorlu Testere')
+      },
+      {
+        ...getProduct('moil-5w-40-dx2-motor-yagi-4l'),
+        category: 'Motor Yağları',
+        shareUrl: brandProductUrl('Moil', 'Moil 5W-40 DX2 Motor Yağı 4L')
+      },
+      {
+        ...getProduct('karadeniz-kirmizi-kabinli-capa-makinasi'),
+        shareUrl: brandProductUrl('Solakoğlu', 'Karadeniz Kırmızı Kabinli Çapa Makinası')
+      },
+      {
+        ...getProduct('rapco-od-16a-1-ilaclama-makinasi'),
+        brand: 'Kawashima & Rapco',
+        shareUrl: brandProductUrl('Kawashima & Rapco', 'Rapco OD-16A-1 İlaçlama Makinası')
+      },
+      {
+        ...getProduct('cat-matkap-somun-sikma-seti'),
+        shareUrl: brandProductUrl('CAT Power Tools', 'CAT Matkap ve Somun Sıkma Seti')
+      },
+      {
+        ...getProduct('rtrmax-18v-akulu-matkap'),
+        shareUrl: brandProductUrl('RTRMAX', 'RTRMAX 18V Akülü Matkap')
+      },
+      {
+        ...getProduct('kama-factor-jenerator-cozumleri'),
+        brand: 'Kama & Factor',
+        shareUrl: brandProductUrl('Kama & Factor', 'KAMA & Factor Jeneratör Çözümleri')
+      }
+    ].filter(item => item && item.image && item.name);
+
+    renderProducts(target, featuredSelections);
   }
 
   function setupGlobalSearch() {
@@ -372,24 +419,19 @@
         { image: 'assets/images/products/capa/07-slk-22-cobra.webp', name: 'SLK 22 Cobra', brand: 'Solakoğlu', model: 'SLK 22 Cobra', category: 'Çapa Makineleri', text: 'SLK 22 Cobra çapa makinesi için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' }
       ],
       'Çapa': [
-        { image: 'assets/images/products/capa/09-karadeniz-kirmizi-kabinli-capa.webp', name: 'Karadeniz Kırmızı Kabinli Çapa Makinası', brand: 'Solakoğlu', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz kırmızı kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
-        { image: 'assets/images/products/capa/10-karadeniz-gri-kabinli-capa.webp', name: 'Karadeniz Gri Kabinli Çapa Makinası', brand: 'Solakoğlu', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz gri kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
-        { image: 'assets/images/products/capa/11-karadeniz-siyah-kabinli-capa.webp', name: 'Karadeniz Siyah Kabinli Çapa Makinası', brand: 'Solakoğlu', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz siyah kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
-        { image: 'assets/images/products/capa/12-karadeniz-gri-4x4-kabinli-capa.webp', name: 'Karadeniz 4x4 Kabinli Çapa Makinası', brand: 'Solakoğlu', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz 4x4 kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
-        { image: 'assets/images/products/capa/01-romorklu-capa-makinasi-kabinli.webp', name: 'Kabinli Römorklu Çapa Makinası', brand: 'Solakoğlu', category: 'Çapa Makineleri', text: 'Kabinli römorklu çapa makinası için güncel fiyat, model ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
-        { image: 'assets/images/products/capa/02-romorklu-capa-makinasi.webp', name: 'Römorklu Çapa Makinası', brand: 'Solakoğlu', category: 'Çapa Makineleri', text: 'Römorklu çapa makinası için güncel fiyat, model ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
-        { image: 'assets/images/products/capa/03-slk-210-atmaca.webp', name: 'SLK 210 Atmaca', brand: 'Solakoğlu', model: 'SLK 210 Atmaca', category: 'Çapa Makineleri', text: 'SLK 210 Atmaca çapa makinesi için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
-        { image: 'assets/images/products/capa/04-slk-12-korkut.webp', name: 'SLK 12 Korkut', brand: 'Solakoğlu', model: 'SLK 12 Korkut', category: 'Çapa Makineleri', text: 'SLK 12 Korkut çapa makinesi için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
-        { image: 'assets/images/products/capa/05-slk-14-korkut.webp', name: 'SLK 14 Korkut', brand: 'Solakoğlu', model: 'SLK 14 Korkut', category: 'Çapa Makineleri', text: 'SLK 14 Korkut çapa makinesi için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
-        { image: 'assets/images/products/capa/06-slk-17-cobra.webp', name: 'SLK 17 Cobra', brand: 'Solakoğlu', model: 'SLK 17 Cobra', category: 'Çapa Makineleri', text: 'SLK 17 Cobra çapa makinesi için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
-        { image: 'assets/images/products/capa/07-slk-22-cobra.webp', name: 'SLK 22 Cobra', brand: 'Solakoğlu', model: 'SLK 22 Cobra', category: 'Çapa Makineleri', text: 'SLK 22 Cobra çapa makinesi için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' }
+        { image: 'assets/images/products/capa/03-slk-210-atmaca.webp', name: 'SLK 210 Atmaca', brand: 'Solakoğlu', model: 'SLK 210 Atmaca', category: 'Çapa Makineleri', text: 'SLK 210 Atmaca açık çapa makinesi için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/04-slk-12-korkut.webp', name: 'SLK 12 Korkut', brand: 'Solakoğlu', model: 'SLK 12 Korkut', category: 'Çapa Makineleri', text: 'SLK 12 Korkut açık çapa makinesi için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/05-slk-14-korkut.webp', name: 'SLK 14 Korkut', brand: 'Solakoğlu', model: 'SLK 14 Korkut', category: 'Çapa Makineleri', text: 'SLK 14 Korkut açık çapa makinesi için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/06-slk-17-cobra.webp', name: 'SLK 17 Cobra', brand: 'Solakoğlu', model: 'SLK 17 Cobra', category: 'Çapa Makineleri', text: 'SLK 17 Cobra açık çapa makinesi için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/07-slk-22-cobra.webp', name: 'SLK 22 Cobra', brand: 'Solakoğlu', model: 'SLK 22 Cobra', category: 'Çapa Makineleri', text: 'SLK 22 Cobra açık çapa makinesi için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' }
       ],
       'Kapalı Çapa': [
         { image: 'assets/images/products/capa/09-karadeniz-kirmizi-kabinli-capa.webp', name: 'Karadeniz Kırmızı Kabinli Çapa Makinası', brand: 'Solakoğlu', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz kırmızı kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
         { image: 'assets/images/products/capa/10-karadeniz-gri-kabinli-capa.webp', name: 'Karadeniz Gri Kabinli Çapa Makinası', brand: 'Solakoğlu', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz gri kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
         { image: 'assets/images/products/capa/11-karadeniz-siyah-kabinli-capa.webp', name: 'Karadeniz Siyah Kabinli Çapa Makinası', brand: 'Solakoğlu', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz siyah kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
         { image: 'assets/images/products/capa/12-karadeniz-gri-4x4-kabinli-capa.webp', name: 'Karadeniz 4x4 Kabinli Çapa Makinası', brand: 'Solakoğlu', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz 4x4 kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
-        { image: 'assets/images/products/capa/01-romorklu-capa-makinasi-kabinli.webp', name: 'Kabinli Römorklu Çapa Makinası', brand: 'Solakoğlu', category: 'Çapa Makineleri', text: 'Kabinli römorklu çapa makinası için güncel fiyat, model ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' }
+        { image: 'assets/images/products/capa/01-romorklu-capa-makinasi-kabinli.webp', name: 'Kabinli Römorklu Çapa Makinası', brand: 'Solakoğlu', category: 'Çapa Makineleri', text: 'Kabinli römorklu çapa makinası için güncel fiyat, model ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/02-romorklu-capa-makinasi.webp', name: 'Römorklu Çapa Makinası', brand: 'Solakoğlu', category: 'Çapa Makineleri', text: 'Römorklu çapa makinası için güncel fiyat, model ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' }
       ]
     };
 
@@ -449,7 +491,9 @@
     };
 
     buttons.forEach(button => button.addEventListener('click', () => show(button.dataset.brand)));
-    const initialBrand = buttons.some(button => button.dataset.brand === requestedBrand) ? requestedBrand : 'Bosch';
+    const brandAliases = { Husqvarna: 'Husqvarna & Qvarna', Qvarna: 'Husqvarna & Qvarna' };
+    const normalizedRequestedBrand = brandAliases[requestedBrand] || requestedBrand;
+    const initialBrand = buttons.some(button => button.dataset.brand === normalizedRequestedBrand) ? normalizedRequestedBrand : 'Bosch';
     show(initialBrand, false);
     if (requestedBrand || requestedItem) {
       requestAnimationFrame(() => {

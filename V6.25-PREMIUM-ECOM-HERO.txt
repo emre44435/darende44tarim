@@ -1,0 +1,5 @@
+V6.25 Premium E-commerce Hero
+- Homepage hero redesigned only; other sections preserved.
+- Desktop hero asset: 1920x1080 WebP based on supplied image.
+- Mobile hero asset: 1080x1350 WebP derived from supplied image for responsive composition.
+- Existing product links and WhatsApp functionality preserved.

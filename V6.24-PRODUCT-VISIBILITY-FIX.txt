@@ -1,0 +1,12 @@
+Darende Tarım V6.24 – Ürün Görünürlük / Açık-Kapalı Çapa Düzeltmesi
+
+- Açık Çapa ürünlerinden Kabinli Römorklu Çapa Makinası kaldırıldı.
+- Açık Çapa ürünlerinden Römorklu Çapa Makinası kaldırıldı.
+- Açık Çapa artık yalnızca SLK 210 Atmaca, SLK 12 Korkut, SLK 14 Korkut, SLK 17 Cobra ve SLK 22 Cobra gösteriyor.
+- Kapalı Çapa alanında 4 Karadeniz kabinli model + Kabinli Römorklu + Römorklu Çapa bulunuyor.
+- Son paketlemede kaybolan RTRMAX ürün görselleri geri eklendi (4 ürün).
+- Son paketlemede kaybolan KAMA & FACTOR ürün görselleri geri eklendi (4 ürün).
+- Karadeniz kabinli çapa ürünleri geri eklendi (4 ürün).
+- Ürün kayıt dosyası eksiksiz sürüme geri getirildi.
+- Öne çıkan ürünler, çalışılan marka gruplarından seçilen ürünlerle senkronize edildi.
+- Mevcut menü, banner, marka logoları, kategori/marka bölüm sırası ve diğer tasarım alanlarına dokunulmadı.

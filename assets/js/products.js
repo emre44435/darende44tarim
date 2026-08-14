@@ -9,18 +9,6 @@ window.DARENDE_BRANDS = Object.freeze([
 */
 window.DARENDE_PRODUCTS = Object.freeze([
   {
-    id:'benzinli-capa-makinesi', name:'Benzinli Çapa Makinesi', category:'Çapa Makineleri', brand:'Genel', model:'',
-    image:'assets/images/products/benzinli-capa-makinesi.webp', alt:'Benzinli çapa makinesi ürün görseli',
-    shortDescription:'Bahçe ve tarla tipi toprak işleme için çapa makinesi ürün alanı.', price:null, featured:false,
-    keywords:['darende çapa makinesi','malatya tarım aletleri','toprak işleme']
-  },
-  {
-    id:'romorklu-capa-makinesi', name:'Römorklu Çapa Makinesi', category:'Çapa Makineleri', brand:'Genel', model:'',
-    image:'assets/images/products/romorklu-capa-makinesi.webp', alt:'Römorklu çapa makinesi ürün görseli',
-    shortDescription:'Römorklu kullanım için ayrılmış ürün alanı. Görsel ve model bilgisi sonradan güncellenebilir.', price:null, featured:true,
-    keywords:['römorklu çapa makinesi','darende tarım aletleri']
-  },
-  {
     id:'inverter-kaynak-makinesi', name:'İnverter Kaynak Makinesi', category:'Kaynak Makineleri', brand:'Genel', model:'',
     image:'assets/images/products/inverter-kaynak-makinesi.webp', alt:'İnverter kaynak makinesi ürün görseli',
     shortDescription:'Atölye ve saha kullanımı için kaynak makinesi ürün alanı.', price:null, featured:true,
@@ -130,7 +118,7 @@ window.DARENDE_PRODUCTS = Object.freeze([
   },
   {
     id:'zirai-ekipman', name:'Zirai Ekipman', category:'Zirai Ekipmanlar', brand:'Genel', model:'',
-    image:'assets/images/products/benzinli-capa-makinesi.webp', alt:'Zirai ekipman ürün görseli',
+    image:'assets/images/placeholders/category-zirai.webp', alt:'Zirai ekipman ürün görseli',
     shortDescription:'Zirai ekipman ürünleri için ayrılmış katalog alanı.', price:null, featured:false,
     keywords:['zirai ekipman','solakoğlu']
   },

@@ -1,7 +1,0 @@
-V6.19 FINAL KATEGORİ + MARKA DÜZENLEMESİ
-- Kategoriler bölümündeki ilk kart Kapalı Çapa Makineleri olarak güncellendi.
-- Kullanıcının gönderdiği römorklu çapa görseli ilk kategori kartında kullanıldı.
-- İlk kategori kartı kabinli/kapalı çapa ürünlerini gösterecek şekilde urunler.html?q=Kabinli bağlantısına yönlendirildi.
-- Çalıştığımız Markalar bölümünde HUSQVARNA ve QVARNA tek blokta birleştirildi.
-- Fazla marka bloğu kaldırıldı; marka ızgarası final düzende 10 blok olarak bırakıldı.
-- Husqvarna & Qvarna birleştirilmiş marka vitrini main.js tarafında eklendi.

@@ -1,0 +1,6 @@
+Darende Tarım V6.18
+- Çalıştığımız Markalar bölümü ile Kategoriler bölümünün sayfa konumları değiştirildi.
+- Çalıştığımız Markalar artık önce gösterilir.
+- Kategoriler bölümü markaların eski konumuna taşındı.
+- Marka kartlarındaki “Ürünleri İncele” butonunun yanındaki ok kaldırıldı.
+- Diğer sayfa yapıları, ürün verileri, WhatsApp akışı ve navigasyon bağlantıları değiştirilmedi.

@@ -1,0 +1,10 @@
+V6.26 PREMIUM HEADER + HERO
+
+- Masaüstü ana sayfa üst alanı tek, koyu ve şeffaf premium menüde birleştirildi.
+- Eski masaüstü beyaz logo/arama satırı ve ayrı kategori menüsü ana sayfada kaldırıldı.
+- Telefon, WhatsApp ve mağaza konumu hızlı erişim ikonları korundu.
+- Hero başlığı cam kutudan çıkarılarak bannerın sol boşluğuna yerleştirildi.
+- Yeni 1920x1080 masaüstü ve 1080x1920 mobil WebP bannerlar eklendi.
+- Masaüstü hero altına dört güven/avantaj kartı eklendi.
+- Mobil çekmece menü sistemi korunup menü ile hero arasındaki taşma düzeltildi.
+- Ana sayfanın hero altındaki bütün bölümleri ve ürün verileri değiştirilmedi.

@@ -1,5 +1,18 @@
 V6.26 PREMIUM HEADER + HERO
 
+V6.27 MOBILE HOTFIX
+- Mobil üst bant kaldırıldı; logo ve iletişim ikonları koyu, kompakt başlıkta toplandı.
+- Telefonda arama satırı kaldırıldı; menü ve kategoriler erişilebilir bırakıldı.
+- Hero sabit dikey orandan çıkarıldı; içerik kesilmeden güvenli minimum yükseklik kullanıyor.
+- Küçük ekranlarda butonlar ve metin genişlikleri yatay taşma yapmayacak şekilde sınırlandı.
+
+V6.28 PREMIUM MOBILE REFINEMENT
+- Mobil hero başlığı küçültüldü ve normal büyük/küçük harf düzenine alındı.
+- Mobil açıklama kısaltıldı; etiket ve tekrar eden güven rozetleri hero içinden kaldırıldı.
+- CTA butonları tek satırda kompakt, dengeli ve dokunma alanı korunmuş biçimde düzenlendi.
+- İçerik hafif cam panelle bannerdan ayrıldı; araçların görünürlüğü artırıldı.
+- Soldan sağa hero parlama ve başlık shimmer animasyonları korundu.
+
 - Masaüstü ana sayfa üst alanı tek, koyu ve şeffaf premium menüde birleştirildi.
 - Eski masaüstü beyaz logo/arama satırı ve ayrı kategori menüsü ana sayfada kaldırıldı.
 - Telefon, WhatsApp ve mağaza konumu hızlı erişim ikonları korundu.

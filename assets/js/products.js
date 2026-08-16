@@ -1,6 +1,6 @@
 'use strict';
 window.DARENDE_BRANDS = Object.freeze([
-  'Bosch','Husqvarna','Qvarna','Moil','Solakoğlu','Kawashima','Rapco','CAT Power Tools','RTRMAX','Kama','Factor','Kapalı Çapa'
+  'Bosch','Husqvarna','Qvarna','Moil','Solakoğlu','Kawashima','Rapco','CAT Power Tools','RTRMAX','Kama','Factor','Karadeniz Kapalı Çapa'
 ]);
 
 /*
@@ -219,25 +219,25 @@ window.DARENDE_PRODUCTS = Object.freeze([
     keywords:['kama factor jeneratör','jeneratör çözümleri','factor power']
   }
   ,{
-    id:'karadeniz-kirmizi-kabinli-capa-makinasi', name:'Karadeniz Kırmızı Kabinli Çapa Makinası', category:'Çapa Makineleri', brand:'Kapalı Çapa', model:'4x4 Kabinli',
+    id:'karadeniz-kirmizi-kabinli-capa-makinasi', name:'Karadeniz Kırmızı Kabinli Çapa Makinası', category:'Çapa Makineleri', brand:'Karadeniz Kapalı Çapa', model:'4x4 Kabinli',
     image:'assets/images/products/capa/09-karadeniz-kirmizi-kabinli-capa.webp', alt:'Karadeniz kırmızı kabinli çapa makinası',
     shortDescription:'Karadeniz kırmızı kabinli çapa makinası için güncel fiyat, model ve teknik detayları WhatsApp üzerinden alabilirsiniz.', price:null, featured:false,
     keywords:['kabinli çapa makinası','karadeniz makina','4x4 kabinli çapa','darende çapa']
   },
   {
-    id:'karadeniz-gri-kabinli-capa-makinasi', name:'Karadeniz Gri Kabinli Çapa Makinası', category:'Çapa Makineleri', brand:'Kapalı Çapa', model:'4x4 Kabinli',
+    id:'karadeniz-gri-kabinli-capa-makinasi', name:'Karadeniz Gri Kabinli Çapa Makinası', category:'Çapa Makineleri', brand:'Karadeniz Kapalı Çapa', model:'4x4 Kabinli',
     image:'assets/images/products/capa/10-karadeniz-gri-kabinli-capa.webp', alt:'Karadeniz gri kabinli çapa makinası',
     shortDescription:'Karadeniz gri kabinli çapa makinası için güncel fiyat, model ve teknik detayları WhatsApp üzerinden alabilirsiniz.', price:null, featured:false,
     keywords:['kabinli çapa makinası','karadeniz makina','gri kabinli çapa','darende çapa']
   },
   {
-    id:'karadeniz-siyah-kabinli-capa-makinasi', name:'Karadeniz Siyah Kabinli Çapa Makinası', category:'Çapa Makineleri', brand:'Kapalı Çapa', model:'4x4 Kabinli',
+    id:'karadeniz-siyah-kabinli-capa-makinasi', name:'Karadeniz Siyah Kabinli Çapa Makinası', category:'Çapa Makineleri', brand:'Karadeniz Kapalı Çapa', model:'4x4 Kabinli',
     image:'assets/images/products/capa/11-karadeniz-siyah-kabinli-capa.webp', alt:'Karadeniz siyah kabinli çapa makinası',
     shortDescription:'Karadeniz siyah kabinli çapa makinası için güncel fiyat, model ve teknik detayları WhatsApp üzerinden alabilirsiniz.', price:null, featured:false,
     keywords:['kabinli çapa makinası','karadeniz makina','siyah kabinli çapa','darende çapa']
   },
   {
-    id:'karadeniz-gri-4x4-kabinli-capa-makinasi', name:'Karadeniz 4x4 Kabinli Çapa Makinası', category:'Çapa Makineleri', brand:'Kapalı Çapa', model:'4x4 Kabinli',
+    id:'karadeniz-gri-4x4-kabinli-capa-makinasi', name:'Karadeniz 4x4 Kabinli Çapa Makinası', category:'Çapa Makineleri', brand:'Karadeniz Kapalı Çapa', model:'4x4 Kabinli',
     image:'assets/images/products/capa/12-karadeniz-gri-4x4-kabinli-capa.webp', alt:'Karadeniz 4x4 kabinli çapa makinası',
     shortDescription:'Karadeniz 4x4 kabinli çapa makinası için güncel fiyat, model ve teknik detayları WhatsApp üzerinden alabilirsiniz.', price:null, featured:false,
     keywords:['kabinli çapa makinası','karadeniz makina','4x4 çapa makinası','darende çapa']

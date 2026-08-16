@@ -1,0 +1,18 @@
+DARENDE TARIM — FINAL YAYIN KONTROLÜ
+Sürüm: 6.33
+Domain: https://darendetarim.com
+
+- Karadeniz Kapalı Çapa marka kartı yeni Karadeniz Kapalı Çapa logosu ile değiştirildi.
+- İlgili ürün grubu adı site içindeki filtre/showcase yapısıyla Karadeniz Kapalı Çapa olarak eşitlendi.
+- Canonical / Open Graph / schema / config / sitemap / robots adresleri darendetarim.com olarak doğrulandı.
+- Ana sayfa ve ürünler sayfası SEO başlık/açıklamaları Darende odaklı arama niyetine göre güncellendi.
+- Marka/kategori alt metinleri ve yerel işletme yapılandırılmış verileri güçlendirildi.
+- Tasarım ve mevcut responsive bileşenler korunarak yalnız içerik/SEO/asset bağlantıları düzenlendi.
+- Cache sürümü 6.33 olarak yenilendi.
+- Kırık yerel asset, duplicate ID ve JavaScript syntax kontrolleri final pakette tekrar yapılmalıdır.
+
+GITHUB PAGES YAYIN NOTU
+Bu projede .github/workflows/static.yml ile GitHub Actions üzerinden Pages yayını kullanılıyor.
+Repository > Settings > Pages > Custom domain alanına darendetarim.com yazın.
+DNS doğrulaması tamamlandıktan sonra Enforce HTTPS seçeneğini etkinleştirin.
+CNAME dosyası pakette bulunur; ancak custom Actions deploy kullanıldığında esas ayar GitHub Pages Custom domain alanıdır.

@@ -1,0 +1,37 @@
+DARENDE TARIM — SEO ANAHTAR KELİME PLANI
+Domain: https://darendetarim.com
+
+ANA HEDEF
+- darende tarım aletleri
+- darende tarım makineleri
+
+YÜKSEK ÖNCELİKLİ HİZMET / ÜRÜN SORGULARI
+- darende çapa makinesi
+- darende çapa makineleri
+- darende kabinli çapa
+- karadeniz kapalı çapa
+- darende jeneratör
+- darende kaynak makinesi
+- darende motorlu testere
+- darende bahçe ekipmanları
+- darende zirai ekipman
+- darende tarım aletleri yedek parça
+
+YEREL DESTEKLEYİCİ SORGULAR
+- malatya tarım aletleri
+- gürün tarım aletleri
+- elbistan tarım aletleri
+
+UYGULANAN ON-PAGE ÇALIŞMALAR
+- Ana sayfa title / description yerel arama niyetine göre güncellendi.
+- Ürünler sayfası title / description özgünleştirildi.
+- Canonical adresler darendetarim.com olarak sabitlendi.
+- Open Graph ve Twitter paylaşım etiketleri tamamlandı.
+- LocalBusiness/Store, Organization, WebSite, WebPage ve Breadcrumb şemaları düzenlendi.
+- Marka ve kategori görsellerinin alt metinleri açıklayıcı hale getirildi.
+- Hakkımızda içeriğinde Darende odaklı doğal yerel sinyaller güçlendirildi.
+- robots.txt, sitemap.xml ve CNAME darendetarim.com için hazırlandı.
+- Meta keywords EKLENMEDİ; Google sıralama amacıyla meta keywords kullanmaz.
+
+NOT
+Google'da 1. sıra teknik olarak garanti edilemez. Site içi SEO güçlü hale getirildi; yerel sıralama için Google İşletme Profili, gerçek yorumlar, Search Console indeksleme ve yerel otorite/backlink sinyalleri de önemlidir.

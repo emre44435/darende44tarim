@@ -243,7 +243,7 @@
       },
       {
         ...getProduct('karadeniz-kirmizi-kabinli-capa-makinasi'),
-        shareUrl: brandProductUrl('Kapalı Çapa', 'Karadeniz Kırmızı Kabinli Çapa Makinası')
+        shareUrl: brandProductUrl('Karadeniz Kapalı Çapa', 'Karadeniz Kırmızı Kabinli Çapa Makinası')
       },
       {
         ...getProduct('rapco-od-16a-1-ilaclama-makinasi'),
@@ -419,11 +419,11 @@
         { image: 'assets/images/products/capa/06-slk-17-cobra.webp', name: 'SLK 17 Cobra', brand: 'Solakoğlu', model: 'SLK 17 Cobra', category: 'Çapa Makineleri', text: 'SLK 17 Cobra açık çapa makinesi için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' },
         { image: 'assets/images/products/capa/07-slk-22-cobra.webp', name: 'SLK 22 Cobra', brand: 'Solakoğlu', model: 'SLK 22 Cobra', category: 'Çapa Makineleri', text: 'SLK 22 Cobra açık çapa makinesi için güncel fiyat ve ürün bilgisini WhatsApp üzerinden sorabilirsiniz.' }
       ],
-      'Kapalı Çapa': [
-        { image: 'assets/images/products/capa/09-karadeniz-kirmizi-kabinli-capa.webp', name: 'Karadeniz Kırmızı Kabinli Çapa Makinası', brand: 'Kapalı Çapa', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz kırmızı kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
-        { image: 'assets/images/products/capa/10-karadeniz-gri-kabinli-capa.webp', name: 'Karadeniz Gri Kabinli Çapa Makinası', brand: 'Kapalı Çapa', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz gri kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
-        { image: 'assets/images/products/capa/11-karadeniz-siyah-kabinli-capa.webp', name: 'Karadeniz Siyah Kabinli Çapa Makinası', brand: 'Kapalı Çapa', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz siyah kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
-        { image: 'assets/images/products/capa/12-karadeniz-gri-4x4-kabinli-capa.webp', name: 'Karadeniz 4x4 Kabinli Çapa Makinası', brand: 'Kapalı Çapa', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz 4x4 kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' }
+      'Karadeniz Kapalı Çapa': [
+        { image: 'assets/images/products/capa/09-karadeniz-kirmizi-kabinli-capa.webp', name: 'Karadeniz Kırmızı Kabinli Çapa Makinası', brand: 'Karadeniz Kapalı Çapa', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz kırmızı kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/10-karadeniz-gri-kabinli-capa.webp', name: 'Karadeniz Gri Kabinli Çapa Makinası', brand: 'Karadeniz Kapalı Çapa', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz gri kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/11-karadeniz-siyah-kabinli-capa.webp', name: 'Karadeniz Siyah Kabinli Çapa Makinası', brand: 'Karadeniz Kapalı Çapa', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz siyah kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' },
+        { image: 'assets/images/products/capa/12-karadeniz-gri-4x4-kabinli-capa.webp', name: 'Karadeniz 4x4 Kabinli Çapa Makinası', brand: 'Karadeniz Kapalı Çapa', model: '4x4 Kabinli', category: 'Çapa Makineleri', text: 'Karadeniz 4x4 kabinli çapa makinası için güncel fiyat ve teknik detayları WhatsApp üzerinden sorabilirsiniz.' }
       ]
     };
 
@@ -439,7 +439,7 @@
       'Kama & Factor': 'urunler.html?brand=Factor',
       'Solakoğlu': 'urunler.html?brand=Solakoğlu',
       'Çapa': 'urunler.html?cat=Çapa%20Makineleri',
-      'Kapalı Çapa': 'urunler.html?q=Kabinli'
+      'Karadeniz Kapalı Çapa': 'urunler.html?q=Kabinli'
     };
 
     const show = (brandName, shouldScroll = true) => {

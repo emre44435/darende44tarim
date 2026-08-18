@@ -15,6 +15,7 @@ UYGULANAN SEO DÜZELTMELERİ
 - sitemap.xml 37 kalıcı URL ile güncellendi.
 - Facebook, Instagram ve WhatsApp ikonları masaüstü, mobil ve footer alanlarında korundu.
 - İşletme sahibinin hesap sahipliği onayıyla Facebook ve Instagram adresleri Store/Organization schema sameAs alanına eklendi.
+- Ana sayfa, logo ve menü bağlantıları temiz kök URL (https://darendetarim.com/) kullanacak şekilde güncellendi.
 - CSS ve JavaScript cache sürümü 700 olarak güncellendi.
 
 YAYINDAN SONRA MUTLAKA YAPILACAKLAR

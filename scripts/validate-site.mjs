@@ -23,6 +23,11 @@ const expectedSameAs = [
   'https://www.facebook.com/gucuktaksi/',
   'https://www.instagram.com/bayram_gucukk/'
 ];
+const expectedSocialPrefixes = {
+  facebook: expectedSameAs[0],
+  instagram: expectedSameAs[1],
+  whatsapp: 'https://wa.me/905055158544'
+};
 
 function addUnique(map, value, file, label) {
   if (!value) return;
@@ -59,8 +64,10 @@ for (const file of htmlFiles) {
   if (!title) errors.push(`${relative}: title missing`);
   if (!description) errors.push(`${relative}: meta description missing`);
   if (!canonical) errors.push(`${relative}: canonical missing`);
+  if (relative === 'index.html' && canonical !== `${domain}/`) errors.push(`${relative}: homepage canonical must be ${domain}/`);
   if (h1Count !== 1) errors.push(`${relative}: expected one H1, found ${h1Count}`);
   if (duplicateIds.length) errors.push(`${relative}: duplicate IDs ${duplicateIds.join(', ')}`);
+  if (/\bhref="(?:\.\/|\/)?index\.html(?:[?#][^"]*)?"/i.test(html)) errors.push(`${relative}: internal home link must use / instead of index.html`);
   addUnique(titleValues, title, relative, 'Title');
   addUnique(canonicalValues, canonical, relative, 'Canonical');
 
@@ -82,8 +89,13 @@ for (const file of htmlFiles) {
     if (local && !fs.existsSync(local)) errors.push(`${relative}: missing local target ${match[1]}`);
   }
 
-  for (const match of html.matchAll(/<a\b([^>]*href="https:\/\/(?:www\.)?(?:facebook\.com|instagram\.com)[^"]*"[^>]*)>/gi)) {
+  for (const match of html.matchAll(/<a\b([^>]*href="(https:\/\/(?:www\.)?(?:facebook\.com|instagram\.com)[^"]*|https:\/\/wa\.me\/[^"]*)"[^>]*)>([\s\S]*?)<\/a>/gi)) {
     const attrs = match[1];
+    const href = match[2].replace(/&amp;/g, '&');
+    const visibleText = match[3].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    const platform = href.includes('facebook.com') ? 'facebook' : href.includes('instagram.com') ? 'instagram' : 'whatsapp';
+    if (!href.startsWith(expectedSocialPrefixes[platform])) errors.push(`${relative}: unexpected ${platform} URL ${href}`);
+    if (!visibleText && !/aria-label="[^"]+"/i.test(attrs)) errors.push(`${relative}: icon-only ${platform} link missing aria-label`);
     if (!/target="_blank"/i.test(attrs)) errors.push(`${relative}: social link missing target=_blank`);
     if (!/rel="[^"]*noopener[^"]*noreferrer[^"]*"/i.test(attrs)) errors.push(`${relative}: social link missing rel=noopener noreferrer`);
   }
@@ -97,7 +109,21 @@ for (const url of sitemapUrls) {
   if (!fs.existsSync(target)) errors.push(`sitemap target missing: ${url}`);
 }
 
+for (const canonical of canonicalValues.keys()) {
+  if (!sitemapUrls.includes(canonical)) errors.push(`canonical missing from sitemap: ${canonical}`);
+}
+for (const url of sitemapUrls) {
+  if (!canonicalValues.has(url)) errors.push(`sitemap URL has no matching canonical: ${url}`);
+}
+
 if (sitemapUrls.length !== 37) errors.push(`expected 37 sitemap URLs, found ${sitemapUrls.length}`);
+
+const robots = fs.readFileSync(path.join(rootDir, 'robots.txt'), 'utf8');
+if (!robots.includes('Sitemap: https://darendetarim.com/sitemap.xml')) errors.push('robots.txt: sitemap declaration missing');
+if (/^\s*Disallow:\s*\/\s*$/im.test(robots)) errors.push('robots.txt: entire site is disallowed');
+
+const cname = fs.readFileSync(path.join(rootDir, 'CNAME'), 'utf8').trim();
+if (cname !== 'darendetarim.com') errors.push(`CNAME: expected darendetarim.com, found ${cname}`);
 
 if (errors.length) {
   console.error(errors.join('\n'));

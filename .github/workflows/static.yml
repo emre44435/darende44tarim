@@ -47,6 +47,8 @@ jobs:
           node --check assets/js/config.js
           node --check assets/js/products.js
           node --check assets/js/main.js
+          node --check scripts/generate-seo-pages.mjs
+          node --check scripts/validate-site.mjs
           node scripts/validate-site.mjs
           grep -Fq 'https://darendetarim.com/' sitemap.xml
           grep -Fq 'Sitemap: https://darendetarim.com/sitemap.xml' robots.txt

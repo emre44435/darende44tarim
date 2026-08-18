@@ -14,7 +14,7 @@ UYGULANAN SEO DÜZELTMELERİ
 - Ana sayfa ve katalog iç bağlantıları yeni kategori/ürün adreslerine bağlandı.
 - sitemap.xml 37 kalıcı URL ile güncellendi.
 - Facebook, Instagram ve WhatsApp ikonları masaüstü, mobil ve footer alanlarında korundu.
-- Sosyal profil bilgileri işletmeyle eşleşmediği için schema sameAs alanı bilerek eklenmedi.
+- İşletme sahibinin hesap sahipliği onayıyla Facebook ve Instagram adresleri Store/Organization schema sameAs alanına eklendi.
 - CSS ve JavaScript cache sürümü 700 olarak güncellendi.
 
 YAYINDAN SONRA MUTLAKA YAPILACAKLAR

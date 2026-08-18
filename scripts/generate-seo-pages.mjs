@@ -12,6 +12,10 @@ const phoneTel = '+905055158544';
 const whatsappNumber = '905055158544';
 const address = 'Sungur Mahallesi, Somuncu Baba Bulvarı No:14, Darende / Malatya';
 const mapsUrl = 'https://maps.google.com?q=38.5532460,37.4935680&entry=gps';
+const socialProfiles = [
+  'https://www.facebook.com/gucuktaksi/',
+  'https://www.instagram.com/bayram_gucukk/'
+];
 
 const productContext = { window: {} };
 vm.createContext(productContext);
@@ -187,6 +191,7 @@ function storeSchema() {
     image: `${domain}/assets/images/ui/darende-tarim-og.webp`,
     description: 'Darende merkezli tarım aletleri, çapa makineleri, jeneratör, kaynak makinesi, motorlu testere, bahçe ve teknik ekipman satışı.',
     telephone: phoneTel,
+    sameAs: [...socialProfiles],
     address: { '@type': 'PostalAddress', streetAddress: 'Sungur Mahallesi, Somuncu Baba Bulvarı No:14', addressLocality: 'Darende', addressRegion: 'Malatya', postalCode: '44700', addressCountry: 'TR' },
     geo: { '@type': 'GeoCoordinates', latitude: 38.553246, longitude: 37.493568 },
     hasMap: mapsUrl,

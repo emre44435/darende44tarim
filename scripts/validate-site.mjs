@@ -19,6 +19,10 @@ const errors = [];
 const canonicalValues = new Map();
 const titleValues = new Map();
 const domain = 'https://darendetarim.com';
+const expectedSameAs = [
+  'https://www.facebook.com/gucuktaksi/',
+  'https://www.instagram.com/bayram_gucukk/'
+];
 
 function addUnique(map, value, file, label) {
   if (!value) return;
@@ -61,7 +65,15 @@ for (const file of htmlFiles) {
   addUnique(canonicalValues, canonical, relative, 'Canonical');
 
   for (const match of html.matchAll(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/gi)) {
-    try { JSON.parse(match[1]); }
+    try {
+      const jsonLd = JSON.parse(match[1]);
+      const nodes = Array.isArray(jsonLd['@graph']) ? jsonLd['@graph'] : [jsonLd];
+      for (const node of nodes.filter(item => ['Store', 'Organization'].includes(item?.['@type']))) {
+        if (!Array.isArray(node.sameAs) || expectedSameAs.some(url => !node.sameAs.includes(url))) {
+          errors.push(`${relative}: ${node['@type']} schema sameAs is missing a required social profile`);
+        }
+      }
+    }
     catch (error) { errors.push(`${relative}: invalid JSON-LD (${error.message})`); }
   }
 

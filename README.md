@@ -60,4 +60,4 @@ Telefon, WhatsApp, adres, harita ve sosyal medya adresleri `assets/js/config.js`
 
 ## Sosyal medya ve schema
 
-Facebook ve Instagram bağlantıları görünür ikonlarda çalışır. Profillerin işletme adı, telefon, adres ve web sitesi Darende Tarım ile eşleşmediği için schema `sameAs` alanına eklenmemiştir. Eşitleme tamamlandıktan sonra manuel doğrulama yapılmalıdır.
+Facebook ve Instagram bağlantıları görünür ikonlarda çalışır. İşletme sahibinin hesap sahipliği onayıyla iki profil de `Store` ve `Organization` schema `sameAs` alanlarına eklenmiştir. Profil adı, telefon, adres, web sitesi ve açıklama bilgilerinin Darende Tarım ile uyumu korunmalıdır.

@@ -63,9 +63,9 @@ Gerçek müşterilerden düzenli yorum isteyin ve bütün yorumlara doğal biçi
 
 ## 4. Yüksek öncelik: sosyal profillerde işletme kimliği
 
-Mevcut ekran görüntülerinde Facebook ve Instagram profillerinde **“Gücük Taksi”**, web sitesinden farklı telefon numarası ve kişisel içerikler bulunuyor. Bu hesaplar şu anda Darende Tarım’ın doğrulanmış resmî işletme profilleri gibi görünmüyor.
+Önceki ekran görüntülerinde Facebook ve Instagram profillerinde **“Gücük Taksi”**, web sitesinden farklı telefon numarası ve kişisel içerikler bulunuyordu. İşletme sahibi 18 Ağustos 2026 tarihinde hesapların kendisine ait olduğunu ve işletme adını eşitlediğini doğruladı.
 
-Kullanıcının talebi doğrultusunda görünür Facebook ve Instagram ikonları istenen profillere bağlanmıştır. Ancak aşağıdaki bilgiler web sitesiyle eşitlenmeden `Organization` veya `Store` schema içindeki `sameAs` alanına eklenmemelidir:
+Kullanıcının açık talebi ve hesap sahipliği onayı doğrultusunda görünür Facebook ve Instagram ikonları istenen profillere bağlanmış, adresler `Organization` ve `Store` schema içindeki `sameAs` alanına eklenmiştir. Aşağıdaki bilgilerin eşitliği korunmalıdır:
 
 - İşletme adı ve kullanıcı adı
 - Telefon numarası
@@ -81,9 +81,9 @@ Kullanıcının talebi doğrultusunda görünür Facebook ve Instagram ikonları
 3. Mevcut hesaplar kullanılacaksa ad, telefon, adres, web sitesi, açıklama ve görselleri eşitleyin.
 4. Profillerde `https://darendetarim.com/` bağlantısını yayınlayın.
 5. Bilgileri oturum kapalıyken kontrol edin.
-6. Tam eşleşme ve sahiplik doğrulamasından sonra schema `sameAs` alanını güncelleyin.
+6. Profil adresi değişirse görünür ikonları ve schema `sameAs` alanını birlikte güncelleyin.
 
-`sameAs` bu pakette bilerek eklenmemiştir.
+`sameAs` bu pakette Facebook ve Instagram adresleriyle güncellenmiştir.
 
 ## 5. Dış güven ve bilinirlik çalışmaları
 

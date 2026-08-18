@@ -1,0 +1,43 @@
+DARENDE TARIM — KURULUM VE TIKLAMA TESTİ
+
+1. ZIP DOSYASINI AÇMA
+
+- ChatGPT içindeki dosya bağlantısına tıklayıp dosyayı bilgisayarınıza indirin.
+- Windows'ta indirilen ZIP dosyasına sağ tıklayın.
+- "Tümünü ayıkla" seçeneğine basın.
+- ZIP dosyasını tarayıcı içinde önizlemeye çalışmayın; önce indirin ve ayıklayın.
+
+2. SİTEYİ YAYINLAMA
+
+Paket içinde GitHub Pages iş akışı bulunduğu için site büyük olasılıkla GitHub üzerinden yayınlanıyor.
+
+GitHub Pages kullanıyorsanız:
+
+- darendetarim.com sitesinin bağlı olduğu GitHub deposunu açın.
+- Ayıklanan klasörün İÇİNDEKİ tüm dosya ve klasörleri depo ana dizinine yükleyin.
+- index.html, urunler.html, assets, CNAME ve diğer dosyalar depo kökünde aynı seviyede olmalıdır.
+- Sorulduğunda mevcut dosyaların üzerine yazılmasına izin verin.
+- Değişiklikleri kaydedin ve GitHub Actions işleminin tamamlanmasını bekleyin.
+
+cPanel veya hosting dosya yöneticisi kullanıyorsanız:
+
+- Ayıklanan klasörün içindeki dosyaları sitenin yayın köküne, genellikle public_html klasörüne yükleyin.
+- ZIP dosyasının kendisini tek başına yüklemeyin. İçeriğini ayıklayıp mevcut site dosyalarının üzerine yazın.
+
+3. YAYIN SONRASI KONTROL
+
+- Yayın tamamlandıktan sonra https://darendetarim.com/ adresini gizli sekmede açın.
+- Gerekirse Windows'ta Ctrl + F5 ile önbelleği yenileyin.
+- Masaüstünde üst menü ve footer içindeki Facebook ile Instagram ikonlarını kontrol edin.
+- Telefonda menüyü açıp Facebook ve Instagram ikonlarını kontrol edin.
+
+Beklenen adresler:
+
+Facebook: https://www.facebook.com/gucuktaksi/
+Instagram: https://www.instagram.com/bayram_gucukk/
+
+4. CHATGPT İLE SON TEST
+
+- Siteyi yayınladıktan sonra sohbete "yayınladım, tıklama testini yap" yazın.
+- Tarayıcı erişim izni sorulursa izin verin.
+- Masaüstü üst menü, mobil menü ve footer bağlantıları canlı sitede tek tek kontrol edilecektir.

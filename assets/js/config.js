@@ -7,6 +7,6 @@ window.DARENDE_CONFIG = Object.freeze({
   whatsapp: '905055158544',
   maps: 'https://maps.google.com?q=38.5532460,37.4935680&entry=gps',
   address: 'Sungur Mahallesi, Somuncu Baba Bulvarı No:14, Darende / Malatya',
-  facebook: '',
-  instagram: ''
+  facebook: 'https://www.facebook.com/gucuktaksi/',
+  instagram: 'https://www.instagram.com/bayram_gucukk/'
 });

@@ -1,37 +1,88 @@
-DARENDE TARIM — SEO ANAHTAR KELİME PLANI
+DARENDE TARIM — SEO HEDEF VE SAYFA PLANI
 Domain: https://darendetarim.com
+Tarih: 18.08.2026
 
-ANA HEDEF
+Not: Bu liste arama hacmi tahmini değildir. Kesin gösterim, tıklama ve ortalama konum verileri Search Console’dan takip edilmelidir.
+
+ANA SAYFA
+URL: https://darendetarim.com/
+Hedefler:
+- darende tarım
 - darende tarım aletleri
 - darende tarım makineleri
+- darende teknik ekipman
 
-YÜKSEK ÖNCELİKLİ HİZMET / ÜRÜN SORGULARI
+KATEGORİ SAYFALARI
+
+URL: /capa-makineleri/
 - darende çapa makinesi
 - darende çapa makineleri
-- darende kabinli çapa
+- darende tarım aracı
+
+URL: /karadeniz-kapali-capa/
 - karadeniz kapalı çapa
+- kabinli çapa makinesi
+- 4x4 kabinli çapa
+
+URL: /jeneratorler/
 - darende jeneratör
+- darende jeneratör fiyatları
+- benzinli dizel inverter jeneratör
+
+URL: /kaynak-makineleri/
 - darende kaynak makinesi
+- inverter kaynak makinesi
+
+URL: /hava-kompresorleri/
+- darende hava kompresörü
+- darende kompresör
+
+URL: /motorlu-testereler/
 - darende motorlu testere
+- darende zincirli testere
+
+URL: /bahce-ekipmanlari/
 - darende bahçe ekipmanları
+- darende tırpan
+
+URL: /zirai-ekipmanlar/
 - darende zirai ekipman
+- darende ilaçlama makinası
+
+URL: /yedek-parca-aksesuar/
 - darende tarım aletleri yedek parça
+- tarım makinesi aksesuar
+- darende motor yağı
+
+URL: /el-aletleri/
+- darende elektrikli el aletleri
+- darende akülü matkap
 
 YEREL DESTEKLEYİCİ SORGULAR
+
 - malatya tarım aletleri
 - gürün tarım aletleri
 - elbistan tarım aletleri
 
-UYGULANAN ON-PAGE ÇALIŞMALAR
-- Ana sayfa title / description yerel arama niyetine göre güncellendi.
-- Ürünler sayfası title / description özgünleştirildi.
-- Canonical adresler darendetarim.com olarak sabitlendi.
-- Open Graph ve Twitter paylaşım etiketleri tamamlandı.
-- LocalBusiness/Store, Organization, WebSite, WebPage ve Breadcrumb şemaları düzenlendi.
-- Marka ve kategori görsellerinin alt metinleri açıklayıcı hale getirildi.
-- Hakkımızda içeriğinde Darende odaklı doğal yerel sinyaller güçlendirildi.
-- robots.txt, sitemap.xml ve CNAME darendetarim.com için hazırlandı.
-- Meta keywords EKLENMEDİ; Google sıralama amacıyla meta keywords kullanmaz.
+Bu şehirler için yalnızca gerçek hizmet ve teslimat kapsamı anlatılmalıdır. Aynı metni şehir adını değiştirerek çoğaltan yapay konum sayfaları oluşturulmamalıdır.
 
-NOT
-Google'da 1. sıra teknik olarak garanti edilemez. Site içi SEO güçlü hale getirildi; yerel sıralama için Google İşletme Profili, gerçek yorumlar, Search Console indeksleme ve yerel otorite/backlink sinyalleri de önemlidir.
+UYGULANAN ÇALIŞMALAR
+
+- Ana sayfa title, meta açıklaması ve H1 marka sorgusuna göre düzenlendi.
+- 10 kategori ve 23 model bazlı ürün sayfası oluşturuldu.
+- Hakkımızda ve İletişim sayfaları bağımsız URL’ye taşındı.
+- Kategori ve ürünler arasında taranabilir iç bağlantılar oluşturuldu.
+- Canonical, Open Graph, breadcrumb ve uygun schema işaretlemeleri eklendi.
+- sitemap.xml 37 kalıcı URL ile güncellendi.
+- Gerçek fiyat, stok, teknik özellik veya yorum bulunmayan alanlarda bilgi uydurulmadı.
+- Meta keywords eklenmedi.
+
+MANUEL ÖNCELİKLER
+
+1. Search Console sitemap ve indeksleme işlemleri
+2. Google İşletme Profili bilgilerinin siteyle eşitlenmesi
+3. Gerçek müşteri yorumları ve işletme fotoğrafları
+4. Sosyal medya profillerinin Darende Tarım kimliğiyle eşitlenmesi
+5. Gerçek bayi, oda ve yerel işletme kayıtlarından güvenilir bağlantılar
+
+Google’da birinci sıra garanti edilemez. Sıralama; alaka, rekabet, mesafe, bilinirlik, bağlantılar, yorumlar ve Google’ın değerlendirme sürecine bağlıdır.

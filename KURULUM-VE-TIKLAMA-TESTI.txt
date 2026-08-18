@@ -2,42 +2,49 @@ DARENDE TARIM — KURULUM VE TIKLAMA TESTİ
 
 1. ZIP DOSYASINI AÇMA
 
-- ChatGPT içindeki dosya bağlantısına tıklayıp dosyayı bilgisayarınıza indirin.
-- Windows'ta indirilen ZIP dosyasına sağ tıklayın.
-- "Tümünü ayıkla" seçeneğine basın.
-- ZIP dosyasını tarayıcı içinde önizlemeye çalışmayın; önce indirin ve ayıklayın.
+- Dosyayı bilgisayarınıza indirin.
+- Windows’ta ZIP dosyasına sağ tıklayın ve “Tümünü ayıkla” seçeneğini kullanın.
+- ZIP’i tarayıcı içinde açmaya çalışmayın; önce bilgisayara indirin.
 
-2. SİTEYİ YAYINLAMA
-
-Paket içinde GitHub Pages iş akışı bulunduğu için site büyük olasılıkla GitHub üzerinden yayınlanıyor.
-
-GitHub Pages kullanıyorsanız:
+2. GITHUB’A YÜKLEME
 
 - darendetarim.com sitesinin bağlı olduğu GitHub deposunu açın.
-- Ayıklanan klasörün İÇİNDEKİ tüm dosya ve klasörleri depo ana dizinine yükleyin.
-- index.html, urunler.html, assets, CNAME ve diğer dosyalar depo kökünde aynı seviyede olmalıdır.
-- Sorulduğunda mevcut dosyaların üzerine yazılmasına izin verin.
-- Değişiklikleri kaydedin ve GitHub Actions işleminin tamamlanmasını bekleyin.
+- Ayıklanan klasörün İÇİNDEKİ bütün dosya ve klasörleri depo ana dizinine yükleyin.
+- Mevcut dosyaların üzerine yazılmasına izin verin.
+- index.html, urunler.html, assets, urun, kategori klasörleri, CNAME, sitemap.xml ve robots.txt kökte kalmalıdır.
+- Commit oluşturun ve GitHub Actions işleminin tamamlanmasını bekleyin.
 
-cPanel veya hosting dosya yöneticisi kullanıyorsanız:
+3. YAYIN SONRASI SAYFA KONTROLÜ
 
-- Ayıklanan klasörün içindeki dosyaları sitenin yayın köküne, genellikle public_html klasörüne yükleyin.
-- ZIP dosyasının kendisini tek başına yüklemeyin. İçeriğini ayıklayıp mevcut site dosyalarının üzerine yazın.
+Aşağıdaki adresleri gizli sekmede açın:
 
-3. YAYIN SONRASI KONTROL
+- https://darendetarim.com/
+- https://darendetarim.com/capa-makineleri/
+- https://darendetarim.com/jeneratorler/
+- https://darendetarim.com/karadeniz-kapali-capa/
+- https://darendetarim.com/hakkimizda/
+- https://darendetarim.com/iletisim/
+- https://darendetarim.com/sitemap.xml
 
-- Yayın tamamlandıktan sonra https://darendetarim.com/ adresini gizli sekmede açın.
-- Gerekirse Windows'ta Ctrl + F5 ile önbelleği yenileyin.
-- Masaüstünde üst menü ve footer içindeki Facebook ile Instagram ikonlarını kontrol edin.
-- Telefonda menüyü açıp Facebook ve Instagram ikonlarını kontrol edin.
+404 hatası alınmamalıdır. Eski tasarım görünürse Ctrl + F5 yapın.
 
-Beklenen adresler:
+4. TIKLAMA TESTİ
+
+Masaüstü ve mobil görünümde aşağıdakileri kontrol edin:
+
+- Ana menü bağlantıları
+- Kategori kartları
+- Ürün detay bağlantıları
+- Telefon ve WhatsApp düğmeleri
+- Facebook, Instagram ve WhatsApp ikonları
+- Google Maps / Yol Tarifi bağlantısı
+
+Beklenen sosyal adresler:
 
 Facebook: https://www.facebook.com/gucuktaksi/
 Instagram: https://www.instagram.com/bayram_gucukk/
+WhatsApp: https://wa.me/905055158544
 
-4. CHATGPT İLE SON TEST
+5. SEARCH CONSOLE
 
-- Siteyi yayınladıktan sonra sohbete "yayınladım, tıklama testini yap" yazın.
-- Tarayıcı erişim izni sorulursa izin verin.
-- Masaüstü üst menü, mobil menü ve footer bağlantıları canlı sitede tek tek kontrol edilecektir.
+Ayrıntılı işlem sırası için SEARCH-CONSOLE-VE-LOKAL-SEO.md dosyasını açın.

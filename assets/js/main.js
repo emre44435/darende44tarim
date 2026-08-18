@@ -5,7 +5,17 @@
   const brands = Array.isArray(window.DARENDE_BRANDS) ? window.DARENDE_BRANDS : [];
   const qs = (s, root=document) => root.querySelector(s);
   const qsa = (s, root=document) => [...root.querySelectorAll(s)];
-  const iconPath = 'assets/icons/';
+  const iconPath = '/assets/icons/';
+  const productDetailIds = new Set([
+    'kawashima-jenerator-ka10000cle3','kawashima-tirpan-ka-t520','kawashima-dal-budama-testere-ka-cs260',
+    'rapco-od-16a-1-ilaclama-makinasi','rapco-rp-5410-sirt-tirpan','rapco-rp-5800-zincirli-testere',
+    'husqvarna-445-x-torq-testere','moil-5w-30-motor-yagi-4l','moil-5w-40-dx2-motor-yagi-4l',
+    'moil-10w-40-diesel-dx3-motor-yagi-4l','slk-210-atmaca','slk-12-korkut','slk-14-korkut',
+    'slk-17-cobra','slk-22-cobra','rtrmax-18v-akulu-matkap','factor-kdk10000ce3-dizel-jenerator',
+    'kama-4-0is-inverter-jenerator','factor-kdk6000e-benzinli-jenerator',
+    'karadeniz-kirmizi-kabinli-capa-makinasi','karadeniz-gri-kabinli-capa-makinasi',
+    'karadeniz-siyah-kabinli-capa-makinasi','karadeniz-gri-4x4-kabinli-capa-makinasi'
+  ]);
 
   const normalizeTR = value => String(value || '')
     .toLocaleLowerCase('tr-TR')
@@ -23,8 +33,14 @@
     return String(cfg.domain || 'https://darendetarim.com').replace(/\/$/, '');
   }
 
+  function productDetailPath(product) {
+    return product?.id && productDetailIds.has(product.id) ? `/urun/${product.id}/` : '';
+  }
+
   function catalogProductUrl(product) {
     if (!product || !product.name) return `${siteBase()}/urunler.html`;
+    const detailPath = productDetailPath(product);
+    if (detailPath) return `${siteBase()}${detailPath}`;
     if (product.id) {
       return `${siteBase()}/urunler.html?product=${encodeURIComponent(product.id)}#urunler`;
     }
@@ -177,7 +193,12 @@
     article.className = 'product-card';
     article.id = `product-${product.id || slugify(product.name)}`;
 
-    const media = document.createElement('div'); media.className = 'product-media';
+    const detailPath = productDetailPath(product);
+    const media = document.createElement(detailPath ? 'a' : 'div'); media.className = 'product-media';
+    if (detailPath) {
+      media.href = detailPath;
+      media.setAttribute('aria-label', `${product.name} ürün detayını incele`);
+    }
     const img = document.createElement('img');
     img.src = product.image; img.alt = product.alt || product.name;
     img.width = 1000; img.height = 1000; img.loading = 'lazy'; img.decoding = 'async';
@@ -189,7 +210,16 @@
     const brand = document.createElement('span'); brand.className = 'product-brand'; brand.textContent = product.brand || 'Darende Tarım';
     meta.append(cat, brand);
 
-    const h3 = document.createElement('h3'); h3.textContent = product.name;
+    const h3 = document.createElement('h3');
+    if (detailPath) {
+      const titleLink = document.createElement('a');
+      titleLink.className = 'product-title-link';
+      titleLink.href = detailPath;
+      titleLink.textContent = product.name;
+      h3.appendChild(titleLink);
+    } else {
+      h3.textContent = product.name;
+    }
     const p = document.createElement('p'); p.textContent = product.shortDescription || '';
 
     const footer = document.createElement('div'); footer.className = 'product-footer';
@@ -283,7 +313,7 @@
             catalogSearch.focus();
           }
         } else {
-          window.location.href = `urunler.html${value ? `?q=${encodeURIComponent(value)}` : ''}`;
+          window.location.href = `/urunler.html${value ? `?q=${encodeURIComponent(value)}` : ''}`;
         }
       });
     });
@@ -434,12 +464,12 @@
     }));
 
     const showcaseLinks = {
-      'Husqvarna & Qvarna': 'urunler.html?q=Husqvarna',
-      'Kawashima & Rapco': 'urunler.html',
-      'Kama & Factor': 'urunler.html?brand=Factor',
-      'Solakoğlu': 'urunler.html?brand=Solakoğlu',
-      'Çapa': 'urunler.html?cat=Çapa%20Makineleri',
-      'Karadeniz Kapalı Çapa': 'urunler.html?q=Kabinli'
+      'Husqvarna & Qvarna': '/motorlu-testereler/',
+      'Kawashima & Rapco': '/urunler.html',
+      'Kama & Factor': '/jeneratorler/',
+      'Solakoğlu': '/capa-makineleri/',
+      'Çapa': '/capa-makineleri/',
+      'Karadeniz Kapalı Çapa': '/karadeniz-kapali-capa/'
     };
 
     const show = (brandName, shouldScroll = true) => {

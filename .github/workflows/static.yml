@@ -39,9 +39,15 @@ jobs:
           test -f assets/js/main.js
           test -f assets/images/hero/hero-premium-desktop.webp
           test -f assets/images/hero/hero-premium-mobile.webp
+          test -f capa-makineleri/index.html
+          test -f jeneratorler/index.html
+          test -f hakkimizda/index.html
+          test -f iletisim/index.html
+          test -f scripts/validate-site.mjs
           node --check assets/js/config.js
           node --check assets/js/products.js
           node --check assets/js/main.js
+          node scripts/validate-site.mjs
           grep -Fq 'https://darendetarim.com/' sitemap.xml
           grep -Fq 'Sitemap: https://darendetarim.com/sitemap.xml' robots.txt
 

@@ -1,18 +1,34 @@
-DARENDE TARIM — FINAL YAYIN KONTROLÜ
-Sürüm: 6.33
+DARENDE TARIM — SEO V2 FINAL YAYIN KONTROLÜ
+Tarih: 18.08.2026
 Domain: https://darendetarim.com
 
-- Karadeniz Kapalı Çapa marka kartı yeni Karadeniz Kapalı Çapa logosu ile değiştirildi.
-- İlgili ürün grubu adı site içindeki filtre/showcase yapısıyla Karadeniz Kapalı Çapa olarak eşitlendi.
-- Canonical / Open Graph / schema / config / sitemap / robots adresleri darendetarim.com olarak doğrulandı.
-- Ana sayfa ve ürünler sayfası SEO başlık/açıklamaları Darende odaklı arama niyetine göre güncellendi.
-- Marka/kategori alt metinleri ve yerel işletme yapılandırılmış verileri güçlendirildi.
-- Tasarım ve mevcut responsive bileşenler korunarak yalnız içerik/SEO/asset bağlantıları düzenlendi.
-- Cache sürümü 6.33 olarak yenilendi.
-- Kırık yerel asset, duplicate ID ve JavaScript syntax kontrolleri final pakette tekrar yapılmalıdır.
+UYGULANAN SEO DÜZELTMELERİ
 
-GITHUB PAGES YAYIN NOTU
-Bu projede .github/workflows/static.yml ile GitHub Actions üzerinden Pages yayını kullanılıyor.
-Repository > Settings > Pages > Custom domain alanına darendetarim.com yazın.
-DNS doğrulaması tamamlandıktan sonra Enforce HTTPS seçeneğini etkinleştirin.
-CNAME dosyası pakette bulunur; ancak custom Actions deploy kullanıldığında esas ayar GitHub Pages Custom domain alanıdır.
+- Ana sayfa H1 başlığı “Darende Tarım Aletleri ve Teknik Ekipman” hedeflemesine dönüştürüldü.
+- Ana sayfa title ve meta açıklaması “Darende Tarım” marka araması için güncellendi.
+- Filtre adresleri yerine 10 bağımsız kategori sayfası oluşturuldu.
+- Doğrulanabilir model bilgisi bulunan 23 ürün için kalıcı ürün sayfası oluşturuldu.
+- Ayrı Hakkımızda ve İletişim sayfaları oluşturuldu.
+- Kategori, ürün ve kurumsal sayfalara canonical, Open Graph, breadcrumb ve uygun schema eklendi.
+- Ürün sayfalarında fiyat, stok, özellik veya yorum uydurulmadı.
+- Ana sayfa ve katalog iç bağlantıları yeni kategori/ürün adreslerine bağlandı.
+- sitemap.xml 37 kalıcı URL ile güncellendi.
+- Facebook, Instagram ve WhatsApp ikonları masaüstü, mobil ve footer alanlarında korundu.
+- Sosyal profil bilgileri işletmeyle eşleşmediği için schema sameAs alanı bilerek eklenmedi.
+- CSS ve JavaScript cache sürümü 700 olarak güncellendi.
+
+YAYINDAN SONRA MUTLAKA YAPILACAKLAR
+
+- GitHub Actions / Pages yayınının başarılı tamamlandığını kontrol edin.
+- Ana sayfa, kategori, ürün, Hakkımızda ve İletişim adreslerini gizli sekmede açın.
+- https://darendetarim.com/sitemap.xml adresinin açıldığını kontrol edin.
+- Search Console’da sitemap.xml dosyasını gönderin.
+- Ana sayfa ve öncelikli kategori URL’leri için bir kez indeksleme isteyin.
+- Google İşletme Profili ad, telefon, adres ve web sitesi bilgilerini eşitleyin.
+- Gerçek müşterilerden yorum isteyin; sahte yorum veya toplu backlink satın almayın.
+
+GITHUB PAGES NOTU
+
+Paket .github/workflows/static.yml üzerinden GitHub Pages yayınına uygundur.
+Repository > Settings > Pages > Custom domain alanında darendetarim.com kullanılmalıdır.
+DNS doğrulandıktan sonra Enforce HTTPS etkin olmalıdır.

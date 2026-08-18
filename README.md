@@ -1,93 +1,63 @@
-# Darende Tarım
+# Darende Tarım — SEO V2
 
-2 sayfalı statik ürün kataloğu ve WhatsApp iletişim sitesi.
+Statik GitHub Pages altyapısı için hazırlanmış, mobil uyumlu ürün kataloğu ve yerel işletme sitesidir.
 
-## Dosyalar
+## Bu sürümde bulunan yapı
+
+- SEO hedeflemesi güncellenmiş ana sayfa
+- JavaScript ürün filtresini koruyan ürün kataloğu
+- 10 bağımsız kategori sayfası
+- 23 model bazlı, indekslenebilir ürün sayfası
+- Ayrı Hakkımızda ve İletişim sayfaları
+- Breadcrumb, CollectionPage, Product, Store ve ContactPage schema yapıları
+- 37 URL içeren güncel `sitemap.xml`
+- Masaüstü ve mobil sosyal medya bağlantıları
+- Ürün bazlı WhatsApp mesaj ve paylaşım bağlantıları
+
+## Önemli dosyalar
 
 - `index.html` — Ana sayfa
-- `urunler.html` — Ürün kataloğu
-- `assets/css/style.css` — Tüm responsive tasarım
-- `assets/js/config.js` — Telefon, WhatsApp, adres ve Maps bilgileri
+- `urunler.html` — Filtrelenebilir ürün kataloğu
+- `capa-makineleri/`, `jeneratorler/` vb. — Kategori sayfaları
+- `urun/` — Model bazlı ürün sayfaları
+- `hakkimizda/` — Kurumsal tanıtım
+- `iletisim/` — Telefon, adres, harita ve hizmet bölgeleri
+- `assets/js/config.js` — Telefon, WhatsApp, adres, Maps ve sosyal medya
 - `assets/js/products.js` — Ürün verileri
-- `assets/js/main.js` — Arama, filtreleme, mobil menü, marka paneli ve WhatsApp davranışları
+- `assets/js/main.js` — Menü, arama, filtreleme ve WhatsApp davranışları
+- `scripts/generate-seo-pages.mjs` — Kategori/ürün sayfaları ve sitemap üreticisi
+- `SEARCH-CONSOLE-VE-LOKAL-SEO.md` — Yayın sonrası manuel işlem listesi
 
-## Görsel ölçüleri ve değiştirme yolları
+## Yayınlama
 
-Aşağıdaki placeholder dosyaları aynı isimlerle yeni WebP görsellerle değiştirin. HTML/CSS değiştirmeye gerek yoktur.
+ZIP içindeki bütün dosya ve klasörleri GitHub deposunun köküne yükleyin. Aşağıdakiler kök dizinde kalmalıdır:
 
-### Hero
-- Dosya: `assets/images/placeholders/hero-banner.webp`
-- Önerilen: **1600 × 960 px** (5:3)
-- Format: WebP
-- Hedef boyut: 180–350 KB, mümkünse 500 KB altında
-- Ürünler görselin orta-sağ alanında kalırsa mobil kırpma daha güvenli olur.
+- `index.html`
+- `urunler.html`
+- `robots.txt`
+- `sitemap.xml`
+- `CNAME`
+- `assets/`
+- kategori ve ürün klasörleri
 
-### Kategori kartları
-- `category-capa.webp`
-- `category-jenerator.webp`
-- `category-kaynak.webp`
-- `category-kompresor.webp`
-- `category-testere.webp`
-- `category-bahce.webp`
-- Önerilen: **800 × 800 px**, 1:1 kare
-- Hedef: 60–140 KB WebP
+GitHub Pages işlemi tamamlandıktan sonra gizli sekmede siteyi ve `https://darendetarim.com/sitemap.xml` adresini kontrol edin.
 
-### Öne çıkan / ürün kartları
-- `product-01.webp` ... `product-08.webp`
-- Önerilen: **1000 × 1000 px**, 1:1 kare
-- Hedef: 80–180 KB WebP, üst sınır 500 KB
-- Ürün adları ve dosya yolları `assets/js/products.js` içinden değiştirilebilir.
+## Ürün verisi güncelleme
 
-### Dikdörtgen ürün grubu blokları
-- `feature-capa.webp`
-- `feature-kaynak.webp`
-- Önerilen: **1200 × 800 px** (3:2)
-- Hedef: 120–220 KB WebP
+Yeni ürünler `assets/js/products.js` dosyasına eklenir. Ürün veya kategori verisi değiştirildikten sonra Node.js kurulu bir bilgisayarda proje kökünden şu komut çalıştırılabilir:
 
-### Hakkımızda / mağaza görseli
-- `about-store.webp`
-- Önerilen: **1200 × 900 px** (4:3)
-- Hedef: 120–250 KB WebP
-
-### Marka ürün örnekleri
-- Şu an `brand-product-01.webp` ... `brand-product-04.webp` örnek slotlar olarak kullanılıyor.
-- Önerilen gerçek marka ürün görselleri: **800 × 800 px** kare.
-- Marka kartına tıklanınca 4 örnek slot açılır. Daha sonra gerçek ürün datasına bağlanabilir.
-
-### Logo
-- Kullanılan logo: `assets/images/ui/darende-tarim-logo.webp`
-- Header ve footer aynı dosyayı kullanır.
-
-## Ürün ekleme
-
-`assets/js/products.js` içindeki diziye yeni obje ekleyin:
-
-```js
-{
-  id: 'benzersiz-urun-slug',
-  name: 'Ürün Adı',
-  category: 'Çapa Makineleri',
-  brand: 'Bosch',
-  model: '',
-  image: 'assets/images/products/urun.webp',
-  alt: 'Açıklayıcı görsel alt metni',
-  shortDescription: 'Kısa ürün açıklaması',
-  price: null,
-  featured: true,
-  keywords: ['darende tarım aletleri']
-}
+```bash
+node scripts/generate-seo-pages.mjs
 ```
 
-Fiyat yoksa `price: null` bırakılır ve kartta “Fiyat için WhatsApp” görünür.
+Komut kategori ve ürün sayfalarını yeniden üretir ve `sitemap.xml` dosyasını günceller.
 
-## İletişim bilgilerini değiştirme
+Modeli ve doğrulanmış teknik bilgisi olmayan ürünler için gerçeğe dayanmayan fiyat, özellik, stok veya yorum eklemeyin.
 
-`assets/js/config.js` dosyasını düzenleyin.
+## İletişim bilgileri
 
-## Arama
+Telefon, WhatsApp, adres, harita ve sosyal medya adresleri `assets/js/config.js` içinden yönetilir. Statik SEO sayfalarında görünen işletme bilgilerinin de aynı kalması gerekir.
 
-Header arama kutusu ana sayfadan `urunler.html?q=...` adresine yönlenir. Ürünler sayfasında arama; ürün adı, marka, model, kategori ve `keywords` alanlarında çalışır.
+## Sosyal medya ve schema
 
-## Deployment
-
-Klasörün içeriğini domain kök dizinine yükleyin. `index.html`, `urunler.html`, `robots.txt` ve `sitemap.xml` kök dizinde kalmalıdır.
+Facebook ve Instagram bağlantıları görünür ikonlarda çalışır. Profillerin işletme adı, telefon, adres ve web sitesi Darende Tarım ile eşleşmediği için schema `sameAs` alanına eklenmemiştir. Eşitleme tamamlandıktan sonra manuel doğrulama yapılmalıdır.
